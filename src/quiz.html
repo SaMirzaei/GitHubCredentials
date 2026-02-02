@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Copilot Certification Quiz - GH-300</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Start Screen */
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-screen h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        .input-group input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #7c3aed;
+        }
+
+        .input-group select {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .input-group select:focus {
+            outline: none;
+            border-color: #7c3aed;
+        }
+
+        .input-group select option {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .option-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            padding: 15px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .option-btn.selected {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary {
+            padding: 15px 40px;
+            background: linear-gradient(90deg, #7c3aed, #00d4ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Quiz Screen */
+        .quiz-screen {
+            display: none;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #00d4ff);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quiz-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-info span {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .quiz-info span strong {
+            color: #fff;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(124, 58, 237, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #a78bfa;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
+        .answers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            padding: 18px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .answer-option:hover:not(.disabled) {
+            border-color: rgba(124, 58, 237, 0.5);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .answer-option.selected {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.2);
+        }
+
+        .answer-option.correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        .answer-option.incorrect {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .answer-option.disabled {
+            cursor: default;
+        }
+
+        .answer-option .option-letter {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .answer-option.correct .option-letter {
+            background: #10b981;
+        }
+
+        .answer-option.incorrect .option-letter {
+            background: #ef4444;
+        }
+
+        .answer-option .option-text {
+            flex: 1;
+        }
+
+        /* Feedback Section */
+        .feedback {
+            display: none;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .feedback.correct {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .feedback.incorrect {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .feedback.correct .feedback-header {
+            color: #10b981;
+        }
+
+        .feedback.incorrect .feedback-header {
+            color: #ef4444;
+        }
+
+        .feedback .correct-answer {
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .feedback .correct-answer strong {
+            color: #10b981;
+        }
+
+        .feedback .explanation {
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .explanation-label {
+            color: #7c3aed;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.next {
+            background: linear-gradient(90deg, #7c3aed, #00d4ff);
+            border: none;
+        }
+
+        .nav-btn.next:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.3);
+        }
+
+        /* Results Screen */
+        .results-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .results-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .results-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .results-subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .score-display {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-number {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .score-number.correct {
+            color: #10b981;
+        }
+
+        .score-number.incorrect {
+            color: #ef4444;
+        }
+
+        .score-number.total {
+            background: linear-gradient(90deg, #7c3aed, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .score-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .percentage-bar {
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+
+        .percentage-bar .bar {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .percentage-bar .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #00d4ff);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .percentage-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .results-message {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .results-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Question Review */
+        .review-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .review-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .review-item {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid;
+        }
+
+        .review-item.correct {
+            border-left-color: #10b981;
+        }
+
+        .review-item.incorrect {
+            border-left-color: #ef4444;
+        }
+
+        .review-item .q-number {
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        .review-item .q-text {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .review-item .your-answer {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .review-item .your-answer strong {
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .score-display {
+                gap: 20px;
+            }
+
+            .score-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hidden utility */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 GitHub Copilot Certification</h1>
+            <h2>Cluster Reply</h2>
+            <p>GH-300 Practice Exam</p>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="card start-screen">
+            <h2>Welcome to the Quiz!</h2>
+            
+            <div class="input-group">
+                <label for="userName">Enter your name:</label>
+                <input type="text" id="userName" placeholder="Your name..." autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label for="categorySelect">Select category:</label>
+                <select id="categorySelect">
+                    <option value="all">📚 All Categories</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="questionCount">Number of questions (leave empty for all in category):</label>
+                <input type="number" id="questionCount" placeholder="All questions" min="1">
+            </div>
+
+            <div class="input-group">
+                <label>Choose question order:</label>
+                <div class="option-group">
+                    <button class="option-btn selected" data-order="sequential" onclick="selectOrder('sequential')">
+                        📋 Sequential (by ID)
+                    </button>
+                    <button class="option-btn" data-order="shuffle" onclick="selectOrder('shuffle')">
+                        🔀 Shuffle
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="startQuiz()" id="startBtn">
+                Start Quiz 🎯
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="card quiz-screen">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span>👤 <strong id="displayName">User</strong></span>
+                    <span>📝 Question <strong id="currentQ">1</strong> of <strong id="totalQ">50</strong></span>
+                    <span>✅ <strong id="correctCount">0</strong> correct</span>
+                </div>
+            </div>
+
+            <div class="topic-badge" id="topicBadge">Topic</div>
+
+            <div class="question-text" id="questionText">
+                Question text here...
+            </div>
+
+            <div class="answers-list" id="answersList">
+                <!-- Answers will be dynamically inserted -->
+            </div>
+
+            <div class="feedback" id="feedback">
+                <div class="feedback-header">
+                    <span id="feedbackIcon">✓</span>
+                    <span id="feedbackText">Correct!</span>
+                </div>
+                <div class="correct-answer" id="correctAnswerDisplay"></div>
+                <div class="explanation">
+                    <span class="explanation-label">📖 Explanation:</span>
+                    <span id="explanationText"></span>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" id="prevBtn" disabled>
+                    ← Previous
+                </button>
+                <button class="nav-btn next" onclick="nextQuestion()" id="nextBtn" disabled>
+                    Next →
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="card results-screen">
+            <div class="results-icon" id="resultsIcon">🏆</div>
+            <h2 class="results-title" id="resultsTitle">Quiz Complete!</h2>
+            <p class="results-subtitle">Great job, <span id="resultName">User</span>!</p>
+
+            <div class="score-display">
+                <div class="score-item">
+                    <div class="score-number correct" id="finalCorrect">0</div>
+                    <div class="score-label">Correct</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-number incorrect" id="finalIncorrect">0</div>
+                    <div class="score-label">Incorrect</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-number total" id="finalTotal">0</div>
+                    <div class="score-label">Total</div>
+                </div>
+            </div>
+
+            <div class="percentage-bar">
+                <div class="bar">
+                    <div class="fill" id="percentageFill"></div>
+                </div>
+                <div class="percentage-text"><span id="percentageText">0</span>% Score</div>
+            </div>
+
+            <div class="results-message" id="resultsMessage">
+                <!-- Message based on score -->
+            </div>
+
+            <div class="results-actions">
+                <button class="nav-btn" onclick="reviewAnswers()">
+                    📋 Review Answers
+                </button>
+                <button class="btn-primary" onclick="restartQuiz()">
+                    🔄 Try Again
+                </button>
+            </div>
+
+            <div class="review-section hidden" id="reviewSection">
+                <h3 class="review-title">📝 Answer Review</h3>
+                <div id="reviewList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embedded Questions Data
+        const quizData = {
+  "exam": "GitHub Copilot Certification GH-300",
+  "totalQuestions": 90,
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "What is GitHub Copilot's primary responsibility regarding generated code?",
+      "potentialAnswers": [
+        "Guarantee production-ready code",
+        "Replace human code review and approval",
+        "Assist developers while requiring human validation",
+        "Automatically remediate security vulnerabilities in all suggestions"
+      ],
+      "rightAnswer": "Assist developers while requiring human validation",
+      "explanation": "Copilot is an assistant. You must validate correctness, security, and compliance before using generated code."
+    },
+    {
+      "id": 2,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Why should you review Copilot-generated code for licensing and IP risks?",
+      "potentialAnswers": [
+        "Copilot automatically attaches a license file to your repository",
+        "Copilot may generate code that is similar to publicly available code patterns",
+        "Copilot only learns from private repositories you own",
+        "Copilot guarantees all output is original and copyright-free"
+      ],
+      "rightAnswer": "Copilot may generate code that is similar to publicly available code patterns",
+      "explanation": "Because output can resemble public code, you must review for license/IP compliance and avoid copying protected snippets."
+    },
+    {
+      "id": 3,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Which action best reduces the risk of biased or inappropriate Copilot outputs in a team setting?",
+      "potentialAnswers": [
+        "Disable code reviews when Copilot is enabled",
+        "Rely only on Copilot for naming and user-facing text",
+        "Apply human review and team standards to all AI-assisted changes",
+        "Use Copilot only on Fridays to reduce exposure"
+      ],
+      "rightAnswer": "Apply human review and team standards to all AI-assisted changes",
+      "explanation": "Bias and harmful content are mitigated through consistent human review, coding standards, and governance."
+    },
+    {
+      "id": 4,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "You receive Copilot code that handles authentication but skips validation and error handling. What is the most responsible next step?",
+      "potentialAnswers": [
+        "Merge it quickly because Copilot is trained on best practices",
+        "Use it as-is if unit tests pass",
+        "Refactor or rewrite it to meet security and validation requirements before merging",
+        "Move it to production and monitor for issues"
+      ],
+      "rightAnswer": "Refactor or rewrite it to meet security and validation requirements before merging",
+      "explanation": "Security-sensitive code requires careful validation, threat modeling, and review; tests alone are not sufficient."
+    },
+    {
+      "id": 5,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Which type of information should you avoid placing in prompts sent to Copilot in an enterprise environment?",
+      "potentialAnswers": [
+        "Public API endpoint examples",
+        "Non-sensitive sample data",
+        "Secrets such as passwords, access tokens, or private keys",
+        "High-level descriptions of a feature"
+      ],
+      "rightAnswer": "Secrets such as passwords, access tokens, or private keys",
+      "explanation": "Never share secrets in prompts. Use secret stores and secure configuration practices."
+    },
+    {
+      "id": 6,
+      "topic": "Introduction to GitHub Copilot",
+      "question": "What is GitHub Copilot primarily designed to help with?",
+      "potentialAnswers": [
+        "Replacing your compiler and build system",
+        "Generating and transforming code using natural language and context",
+        "Managing Git branches and resolving merge conflicts automatically",
+        "Enforcing repository permissions and SSO policies"
+      ],
+      "rightAnswer": "Generating and transforming code using natural language and context",
+      "explanation": "Copilot is an AI coding assistant that uses your editor context and prompts to suggest code and explanations."
+    },
+    {
+      "id": 7,
+      "topic": "Introduction to GitHub Copilot",
+      "question": "Which input most strongly influences the quality of Copilot inline suggestions?",
+      "potentialAnswers": [
+        "Your GitHub followers count",
+        "The surrounding code and comments in the current file",
+        "The number of open browser tabs",
+        "Your operating system version"
+      ],
+      "rightAnswer": "The surrounding code and comments in the current file",
+      "explanation": "Inline completions are highly context-driven: nearby code, names, and comments steer suggestions."
+    },
+    {
+      "id": 8,
+      "topic": "Introduction to GitHub Copilot",
+      "question": "Which capability is most associated with Copilot Chat compared to inline completions?",
+      "potentialAnswers": [
+        "Multi-turn conversation with follow-up questions and context",
+        "Only completing the current line of code",
+        "Automatically running tests on your behalf",
+        "Publishing packages to registries"
+      ],
+      "rightAnswer": "Multi-turn conversation with follow-up questions and context",
+      "explanation": "Chat is optimized for interactive assistance, reasoning, and iteration beyond single inline suggestions."
+    },
+    {
+      "id": 9,
+      "topic": "Introduction to GitHub Copilot",
+      "question": "In an IDE, when is Copilot most likely to provide a strong suggestion?",
+      "potentialAnswers": [
+        "When function names, parameter types, and comments describe intent clearly",
+        "When code is intentionally obfuscated to be shorter",
+        "When there is no file open in the editor",
+        "When you avoid using meaningful identifiers"
+      ],
+      "rightAnswer": "When function names, parameter types, and comments describe intent clearly",
+      "explanation": "Clear intent and strong local context improve completion relevance and correctness."
+    },
+    {
+      "id": 10,
+      "topic": "Introduction to GitHub Copilot",
+      "question": "Which statement best describes developer responsibility when using Copilot?",
+      "potentialAnswers": [
+        "Copilot output is always correct if it compiles",
+        "Copilot output should be reviewed like any other code contribution",
+        "Copilot output is exempt from secure coding standards",
+        "Copilot output cannot introduce licensing risks"
+      ],
+      "rightAnswer": "Copilot output should be reviewed like any other code contribution",
+      "explanation": "AI assistance does not remove the need for code review, testing, security checks, and compliance review."
+    },
+    {
+      "id": 11,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Which prompt is most likely to produce a correct and maintainable result?",
+      "potentialAnswers": [
+        "\"Make it work.\"",
+        "\"Write code for this.\"",
+        "\"Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.\"",
+        "\"Do the thing I mean.\""
+      ],
+      "rightAnswer": "\"Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.\"",
+      "explanation": "Specific requirements (language, signature, approach, constraints) reduce ambiguity and improve quality."
+    },
+    {
+      "id": 12,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "You want Copilot to follow your team's style and patterns. What is the best approach?",
+      "potentialAnswers": [
+        "Use shorter variable names so Copilot has less to copy",
+        "Provide a small example in the same file that demonstrates the desired pattern",
+        "Disable formatting tools so Copilot cannot be influenced",
+        "Avoid writing comments near the code"
+      ],
+      "rightAnswer": "Provide a small example in the same file that demonstrates the desired pattern",
+      "explanation": "Copilot tends to mirror nearby examples and conventions; exemplars strongly steer output."
+    },
+    {
+      "id": 13,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Which is an effective technique to improve Copilot answers when the first response is not satisfactory?",
+      "potentialAnswers": [
+        "Repeat the same prompt verbatim until it changes",
+        "Add constraints such as edge cases, performance limits, and required libraries, then ask again",
+        "Remove all context and ask only \"fix it\"",
+        "Switch to an unrelated programming language"
+      ],
+      "rightAnswer": "Add constraints such as edge cases, performance limits, and required libraries, then ask again",
+      "explanation": "Iterating by clarifying constraints and success criteria typically yields better results."
+    },
+    {
+      "id": 14,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "What is the main purpose of including acceptance criteria in a Copilot prompt for feature code?",
+      "potentialAnswers": [
+        "To increase the file size so Copilot returns longer code",
+        "To define measurable conditions that the generated solution must satisfy",
+        "To bypass code review requirements",
+        "To ensure the output uses the newest framework versions automatically"
+      ],
+      "rightAnswer": "To define measurable conditions that the generated solution must satisfy",
+      "explanation": "Clear acceptance criteria guides Copilot to produce code aligned with expected behavior and constraints."
+    },
+    {
+      "id": 15,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Which prompt is best for refactoring an existing method safely?",
+      "potentialAnswers": [
+        "\"Refactor.\"",
+        "\"Rewrite everything.\"",
+        "\"Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.\"",
+        "\"Make it faster no matter what.\""
+      ],
+      "rightAnswer": "\"Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.\"",
+      "explanation": "It specifies constraints (no behavior change) and quality goals (tests), reducing refactoring risk."
+    },
+    {
+      "id": 16,
+      "topic": "Introduction to Copilot Spaces",
+      "question": "What problem do Copilot Spaces primarily solve for teams?",
+      "potentialAnswers": [
+        "They speed up your CPU and GPU for faster builds",
+        "They provide shared, curated context so AI assistance is consistent across a team",
+        "They automatically merge pull requests without review",
+        "They replace wiki tools by publishing PDFs"
+      ],
+      "rightAnswer": "They provide shared, curated context so AI assistance is consistent across a team",
+      "explanation": "Spaces are intended to centralize relevant context and guidance for better, consistent AI help."
+    },
+    {
+      "id": 17,
+      "topic": "Introduction to Copilot Spaces",
+      "question": "Which scenario is the best fit for creating a Copilot Space?",
+      "potentialAnswers": [
+        "A personal scratch repository used only for experiments",
+        "A team wants consistent guidance for coding standards, architecture rules, and common workflows",
+        "A build server needs more RAM",
+        "A project wants to avoid using any documentation"
+      ],
+      "rightAnswer": "A team wants consistent guidance for coding standards, architecture rules, and common workflows",
+      "explanation": "Spaces help teams standardize how Copilot supports their repositories, patterns, and practices."
+    },
+    {
+      "id": 18,
+      "topic": "Introduction to Copilot Spaces",
+      "question": "What is a key governance benefit of Copilot Spaces in an organization?",
+      "potentialAnswers": [
+        "They force all developers to use the same IDE",
+        "They enable curated context and guardrails controlled by the organization",
+        "They prevent developers from writing unit tests",
+        "They encrypt source code without using Git"
+      ],
+      "rightAnswer": "They enable curated context and guardrails controlled by the organization",
+      "explanation": "Spaces allow org-level curation of context and guidance to improve consistency and compliance."
+    },
+    {
+      "id": 19,
+      "topic": "Introduction to Copilot Spaces",
+      "question": "How should sensitive internal information be handled when configuring a Space?",
+      "potentialAnswers": [
+        "Include all secrets so Copilot can generate correct deployment scripts",
+        "Avoid including secrets; use secure references and least-privilege access to documentation",
+        "Store secrets in README files to help onboarding",
+        "Paste production credentials into prompts only, not into Space context"
+      ],
+      "rightAnswer": "Avoid including secrets; use secure references and least-privilege access to documentation",
+      "explanation": "Spaces should not contain secrets; follow least privilege and secure documentation practices."
+    },
+    {
+      "id": 20,
+      "topic": "Introduction to Copilot Spaces",
+      "question": "What is a practical outcome of using a Copilot Space for a repo with established patterns?",
+      "potentialAnswers": [
+        "Copilot always writes code in a different style to increase variety",
+        "Copilot suggestions more often align with repo conventions and architectural decisions",
+        "Copilot disables linting automatically",
+        "Copilot replaces CI checks"
+      ],
+      "rightAnswer": "Copilot suggestions more often align with repo conventions and architectural decisions",
+      "explanation": "Curated shared context improves alignment to existing patterns and reduces inconsistent outputs."
+    },
+    {
+      "id": 21,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "In Copilot Chat, what is the main benefit of using a command like /explain (or an equivalent explain request)?",
+      "potentialAnswers": [
+        "It compiles the code and reports runtime output",
+        "It summarizes what selected code does in natural language",
+        "It automatically fixes all vulnerabilities",
+        "It changes repository settings"
+      ],
+      "rightAnswer": "It summarizes what selected code does in natural language",
+      "explanation": "Explain requests help you understand unfamiliar code quickly, aiding review and learning."
+    },
+    {
+      "id": 22,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "You want Copilot to generate tests for a method. Which input increases the chance of good test coverage?",
+      "potentialAnswers": [
+        "Only the method name",
+        "The method code plus a list of edge cases and the desired framework (e.g., xUnit)",
+        "A screenshot of your IDE theme",
+        "A single word: \"tests\""
+      ],
+      "rightAnswer": "The method code plus a list of edge cases and the desired framework (e.g., xUnit)",
+      "explanation": "Tests improve when Copilot knows the behavior, edge cases, and the framework conventions."
+    },
+    {
+      "id": 23,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "Which Copilot Chat usage is most appropriate during code review?",
+      "potentialAnswers": [
+        "Ask Copilot to approve the PR without reading it",
+        "Ask Copilot to summarize changes and highlight potential risks for you to verify",
+        "Ask Copilot to bypass required checks",
+        "Ask Copilot to merge directly to main"
+      ],
+      "rightAnswer": "Ask Copilot to summarize changes and highlight potential risks for you to verify",
+      "explanation": "Copilot can accelerate review by summarizing and pointing out risks, but humans must verify."
+    },
+    {
+      "id": 24,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "Which approach best uses Copilot to refactor code while controlling risk?",
+      "potentialAnswers": [
+        "Ask Copilot to refactor the entire solution in one step",
+        "Refactor a small unit, run tests, and iterate with Copilot in steps",
+        "Disable tests because Copilot is confident",
+        "Only refactor on production branches"
+      ],
+      "rightAnswer": "Refactor a small unit, run tests, and iterate with Copilot in steps",
+      "explanation": "Small, verifiable changes with tests reduce risk and make AI-assisted refactoring safer."
+    },
+    {
+      "id": 25,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "What is a strong way to use Copilot for documentation?",
+      "potentialAnswers": [
+        "Generate docs, then publish without review",
+        "Generate docs that describe intent, then verify with code and update inaccuracies",
+        "Only document after a security incident",
+        "Avoid docs because Copilot can explain later"
+      ],
+      "rightAnswer": "Generate docs that describe intent, then verify with code and update inaccuracies",
+      "explanation": "AI can draft documentation quickly, but accuracy must be validated against implementation."
+    },
+    {
+      "id": 26,
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "question": "When working in a terminal, what is a typical Copilot CLI use case?",
+      "potentialAnswers": [
+        "Rendering HTML components",
+        "Suggesting or explaining shell commands based on a natural-language goal",
+        "Managing GitHub billing automatically",
+        "Replacing your operating system"
+      ],
+      "rightAnswer": "Suggesting or explaining shell commands based on a natural-language goal",
+      "explanation": "Copilot CLI helps translate goals into commands and explain what commands do before you run them."
+    },
+    {
+      "id": 27,
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "question": "On GitHub.com, which activity is Copilot most commonly used to accelerate?",
+      "potentialAnswers": [
+        "Changing your laptop firmware",
+        "Summarizing pull requests and assisting review comments",
+        "Running local unit tests",
+        "Editing IDE keybindings"
+      ],
+      "rightAnswer": "Summarizing pull requests and assisting review comments",
+      "explanation": "On GitHub.com, Copilot can help interpret diffs, summarize changes, and draft review feedback."
+    },
+    {
+      "id": 28,
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "question": "Which approach best leverages Copilot when switching between IDE and GitHub.com?",
+      "potentialAnswers": [
+        "Use Copilot only in one environment to avoid inconsistency",
+        "Use IDE Copilot for implementation and GitHub.com Copilot for PR summaries/review assistance",
+        "Use GitHub.com Copilot to write code directly in production",
+        "Avoid PR descriptions since Copilot can guess intent"
+      ],
+      "rightAnswer": "Use IDE Copilot for implementation and GitHub.com Copilot for PR summaries/review assistance",
+      "explanation": "Each environment is optimized for different tasks: coding in IDE, collaboration/review on GitHub.com."
+    },
+    {
+      "id": 29,
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "question": "What is a safe workflow when using Copilot to generate a potentially destructive command (e.g., deleting resources)?",
+      "potentialAnswers": [
+        "Run the command immediately to save time",
+        "Ask Copilot for a shorter command that does more",
+        "Ask for an explanation, verify with docs, and use a dry-run or scoped command first",
+        "Disable shell history so mistakes are hidden"
+      ],
+      "rightAnswer": "Ask for an explanation, verify with docs, and use a dry-run or scoped command first",
+      "explanation": "Commands can be destructive; you should validate and prefer dry-run/scoped execution."
+    },
+    {
+      "id": 30,
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "question": "Which is a strong prompt for Copilot CLI when troubleshooting?",
+      "potentialAnswers": [
+        "\"help\"",
+        "\"fix my computer\"",
+        "\"Explain what this command does and suggest a safer alternative: rm -rf ./build\"",
+        "\"run anything to clean up\""
+      ],
+      "rightAnswer": "\"Explain what this command does and suggest a safer alternative: rm -rf ./build\"",
+      "explanation": "It provides the exact command and asks for explanation plus safer alternatives."
+    },
+    {
+      "id": 31,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "In an organization, who typically controls whether developers can use Copilot?",
+      "potentialAnswers": [
+        "The local IDE vendor",
+        "Organization administrators via GitHub settings",
+        "Any developer with write access to a repository",
+        "Only Microsoft support"
+      ],
+      "rightAnswer": "Organization administrators via GitHub settings",
+      "explanation": "Copilot access and policy are generally managed at the org/enterprise level in GitHub."
+    },
+    {
+      "id": 32,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Which control is most relevant for reducing compliance risk in Copilot usage?",
+      "potentialAnswers": [
+        "Restricting who can install fonts in the IDE",
+        "Configuring policies around data sharing and suggested content",
+        "Disabling all pull requests",
+        "Turning off syntax highlighting"
+      ],
+      "rightAnswer": "Configuring policies around data sharing and suggested content",
+      "explanation": "Governance features focus on data handling and content controls to meet compliance requirements."
+    },
+    {
+      "id": 33,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Why might an admin restrict Copilot in certain repositories?",
+      "potentialAnswers": [
+        "To reduce the number of unit tests",
+        "Because repositories may contain highly sensitive code or regulated data",
+        "To force developers to use a different programming language",
+        "Because Copilot cannot work with Git"
+      ],
+      "rightAnswer": "Because repositories may contain highly sensitive code or regulated data",
+      "explanation": "Sensitive environments may require stricter controls, governance, and auditing."
+    },
+    {
+      "id": 34,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "A team wants Copilot suggestions to match their Clean Architecture layering rules. What is the best operational approach?",
+      "potentialAnswers": [
+        "Ignore layering; fix it later in production",
+        "Document layering rules and provide examples/templates so Copilot sees patterns in code",
+        "Rename all folders to random names to prevent pattern matching",
+        "Disable linters and analyzers"
+      ],
+      "rightAnswer": "Document layering rules and provide examples/templates so Copilot sees patterns in code",
+      "explanation": "Copilot follows visible patterns; explicit examples and guardrails reinforce architectural constraints."
+    },
+    {
+      "id": 35,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Which practice helps teams safely adopt Copilot at scale?",
+      "potentialAnswers": [
+        "Remove code review to accelerate delivery",
+        "Establish guidelines for prompts, review, security scanning, and acceptable use",
+        "Allow secrets in prompts to improve accuracy",
+        "Only use Copilot for production hotfixes"
+      ],
+      "rightAnswer": "Establish guidelines for prompts, review, security scanning, and acceptable use",
+      "explanation": "Successful adoption requires governance: guidance, training, and standard engineering controls."
+    },
+    {
+      "id": 36,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which task is generally a high-value and low-risk use case for Copilot?",
+      "potentialAnswers": [
+        "Writing boilerplate code (DTOs, mapping, simple helpers) that you will review",
+        "Approving a PR without reading it",
+        "Generating production secrets management policies",
+        "Deciding legal licensing strategy"
+      ],
+      "rightAnswer": "Writing boilerplate code (DTOs, mapping, simple helpers) that you will review",
+      "explanation": "Boilerplate accelerates development and is easier to review for correctness."
+    },
+    {
+      "id": 37,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "You are new to a codebase and want to understand a complex module quickly. What is the best Copilot-assisted approach?",
+      "potentialAnswers": [
+        "Ask Copilot to summarize the module, then confirm by reading key entry points and tests",
+        "Ask Copilot to delete the module and regenerate it",
+        "Assume Copilot's summary is correct and skip reading code",
+        "Disable code navigation to focus on the chat"
+      ],
+      "rightAnswer": "Ask Copilot to summarize the module, then confirm by reading key entry points and tests",
+      "explanation": "Copilot accelerates comprehension, but you must verify by inspecting actual code paths and tests."
+    },
+    {
+      "id": 38,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which prompt best supports generating an implementation plan (not code) for a feature?",
+      "potentialAnswers": [
+        "\"Write it.\"",
+        "\"Give me steps to implement feature X, include risks, edge cases, and a testing checklist.\"",
+        "\"Do everything automatically.\"",
+        "\"No details, just code.\""
+      ],
+      "rightAnswer": "\"Give me steps to implement feature X, include risks, edge cases, and a testing checklist.\"",
+      "explanation": "A planning prompt requests structure (steps, risks, tests), which produces actionable guidance."
+    },
+    {
+      "id": 39,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which is the most appropriate way to use Copilot for security-sensitive code?",
+      "potentialAnswers": [
+        "Generate and merge directly if it compiles",
+        "Use Copilot to draft, then apply secure patterns, run security scans, and review carefully",
+        "Disable logging and monitoring to avoid noise",
+        "Skip threat modeling because AI already considered it"
+      ],
+      "rightAnswer": "Use Copilot to draft, then apply secure patterns, run security scans, and review carefully",
+      "explanation": "AI can draft code, but security requires secure-by-design, scanning, and human verification."
+    },
+    {
+      "id": 40,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "How does Copilot most commonly improve developer productivity?",
+      "potentialAnswers": [
+        "By eliminating the need for requirements",
+        "By reducing context switching and accelerating routine coding tasks",
+        "By removing the need for unit testing",
+        "By replacing version control systems"
+      ],
+      "rightAnswer": "By reducing context switching and accelerating routine coding tasks",
+      "explanation": "Copilot speeds up drafting, refactoring, and exploration so developers stay in flow."
+    },
+    {
+      "id": 41,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "What is the best description of Copilot's role in unit testing?",
+      "potentialAnswers": [
+        "It automatically executes tests in CI",
+        "It can draft unit tests that you review and refine",
+        "It replaces the need for a testing framework",
+        "It guarantees 100% code coverage"
+      ],
+      "rightAnswer": "It can draft unit tests that you review and refine",
+      "explanation": "Copilot accelerates writing tests but developers validate coverage, correctness, and maintainability."
+    },
+    {
+      "id": 42,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which prompt is most effective to generate xUnit tests for a method?",
+      "potentialAnswers": [
+        "\"Write tests.\"",
+        "\"Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.\"",
+        "\"Test it quickly.\"",
+        "\"Make coverage high.\""
+      ],
+      "rightAnswer": "\"Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.\"",
+      "explanation": "It specifies framework, edge cases, and assertion style—leading to more usable tests."
+    },
+    {
+      "id": 43,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "After generating unit tests with Copilot, what should you verify first?",
+      "potentialAnswers": [
+        "That the test file has the same name as the production file",
+        "That assertions match the intended behavior and are not testing implementation details unnecessarily",
+        "That the tests include emojis in comments",
+        "That the tests do not compile so you can fix them manually"
+      ],
+      "rightAnswer": "That assertions match the intended behavior and are not testing implementation details unnecessarily",
+      "explanation": "AI-generated tests can assert the wrong thing or couple to implementation; validate correctness and intent."
+    },
+    {
+      "id": 44,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which risk is most common with AI-generated tests?",
+      "potentialAnswers": [
+        "They always run slower than human-written tests",
+        "They may give false confidence by asserting trivial conditions or missing edge cases",
+        "They cannot be executed by test runners",
+        "They always reduce coverage"
+      ],
+      "rightAnswer": "They may give false confidence by asserting trivial conditions or missing edge cases",
+      "explanation": "AI may generate shallow assertions; you must ensure tests validate meaningful behavior and edge cases."
+    },
+    {
+      "id": 45,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "You have a service that depends on an external API client. What is the best Copilot-assisted approach to unit testing it?",
+      "potentialAnswers": [
+        "Call the real external API in unit tests",
+        "Mock or fake the dependency and test only your service behavior",
+        "Skip unit tests because integration tests are enough",
+        "Hardcode production API keys in the test"
+      ],
+      "rightAnswer": "Mock or fake the dependency and test only your service behavior",
+      "explanation": "Unit tests should be isolated and deterministic; mocking external dependencies is the standard approach."
+    },
+    {
+      "id": 46,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which is the most useful input to give Copilot when asking for tests around error handling?",
+      "potentialAnswers": [
+        "Only the happy-path example",
+        "The method plus the list of exceptions and error responses it should produce",
+        "Your Git config",
+        "A random stack trace from another project"
+      ],
+      "rightAnswer": "The method plus the list of exceptions and error responses it should produce",
+      "explanation": "Explicit error scenarios guide Copilot to create relevant tests for failure paths."
+    },
+    {
+      "id": 47,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "When should you prefer integration tests over unit tests for Copilot-generated test suggestions?",
+      "potentialAnswers": [
+        "When behavior depends on multiple components wiring and configuration (e.g., DI, database mappings)",
+        "When you want the fastest possible tests",
+        "When you want to avoid using a database",
+        "When the code is a pure function"
+      ],
+      "rightAnswer": "When behavior depends on multiple components wiring and configuration (e.g., DI, database mappings)",
+      "explanation": "Integration tests validate cross-component behavior that unit tests cannot reliably cover."
+    },
+    {
+      "id": 48,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which workflow best combines Copilot with test-driven development (TDD)?",
+      "potentialAnswers": [
+        "Ask Copilot for final implementation first, then generate tests later",
+        "Write a failing test (or prompt Copilot to draft it), implement minimal code, then refactor with Copilot",
+        "Skip red-green-refactor to save time",
+        "Only write tests after production deployment"
+      ],
+      "rightAnswer": "Write a failing test (or prompt Copilot to draft it), implement minimal code, then refactor with Copilot",
+      "explanation": "Copilot can accelerate each TDD step, but you still follow red-green-refactor for correctness."
+    },
+    {
+      "id": 49,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which code is typically the easiest and best target for Copilot-generated unit tests?",
+      "potentialAnswers": [
+        "Pure business logic with deterministic outputs",
+        "UI animations with timing dependencies",
+        "Hardware driver code interacting with devices",
+        "Network latency behavior across regions"
+      ],
+      "rightAnswer": "Pure business logic with deterministic outputs",
+      "explanation": "Deterministic logic is straightforward to assert and mock-free, producing stable unit tests."
+    },
+    {
+      "id": 50,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Who is ultimately accountable for the quality and correctness of Copilot-generated tests in a codebase?",
+      "potentialAnswers": [
+        "GitHub",
+        "Microsoft",
+        "The Copilot model",
+        "The developer and the team's review process"
+      ],
+      "rightAnswer": "The developer and the team's review process",
+      "explanation": "AI assists, but engineering accountability remains with the humans who write, review, and ship the software."
+    },
+    {
+      "id": 51,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Your team enables GitHub Copilot in a regulated environment (financial data). Which control is MOST important to enable before broad rollout?",
+      "potentialAnswers": [
+        "Disable code reviews to reduce human bias",
+        "Restrict data sharing and enforce human review policies",
+        "Allow Copilot to access production secrets for accuracy",
+        "Rely on Copilot Chat explanations instead of documentation"
+      ],
+      "rightAnswer": "Restrict data sharing and enforce human review policies",
+      "explanation": "Regulated environments require governance, data controls, and mandatory human review of AI-assisted code."
+    },
+    {
+      "id": 52,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "A developer copies a Copilot-generated snippet into production without review, causing a security issue. What is the correct accountability model?",
+      "potentialAnswers": [
+        "The Copilot model is responsible",
+        "GitHub is responsible for insecure output",
+        "The developer and team remain responsible",
+        "Security scanners should have prevented it automatically"
+      ],
+      "rightAnswer": "The developer and team remain responsible",
+      "explanation": "Microsoft guidance is clear: AI assists, but responsibility remains with humans and team processes."
+    },
+    {
+      "id": 53,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Which Copilot usage most closely violates Responsible AI principles?",
+      "potentialAnswers": [
+        "Using Copilot to draft boilerplate code",
+        "Using Copilot to explain unfamiliar code",
+        "Using Copilot output as final authority for security logic",
+        "Using Copilot during pair programming"
+      ],
+      "rightAnswer": "Using Copilot output as final authority for security logic",
+      "explanation": "Security-critical decisions must never be delegated blindly to AI."
+    },
+    {
+      "id": 54,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Why should organizations avoid including secrets in Copilot prompts?",
+      "potentialAnswers": [
+        "Copilot cannot parse secrets correctly",
+        "Secrets may violate organizational data protection policies",
+        "Copilot stores prompts directly in repositories",
+        "Secrets reduce model accuracy"
+      ],
+      "rightAnswer": "Secrets may violate organizational data protection policies",
+      "explanation": "Prompts are subject to enterprise data governance and must not include sensitive data."
+    },
+    {
+      "id": 55,
+      "topic": "Responsible AI with GitHub Copilot",
+      "question": "Which statement best reflects Microsoft's position on Copilot and compliance?",
+      "potentialAnswers": [
+        "Copilot guarantees regulatory compliance",
+        "Compliance shifts to the AI provider",
+        "Organizations remain responsible for compliance and governance",
+        "Compliance applies only to human-written code"
+      ],
+      "rightAnswer": "Organizations remain responsible for compliance and governance",
+      "explanation": "AI tooling does not transfer legal or regulatory responsibility."
+    },
+    {
+      "id": 56,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "You want Copilot to generate maintainable code aligned with Clean Architecture. Which prompt is BEST?",
+      "potentialAnswers": [
+        "Write repository code",
+        "Implement everything fast",
+        "Create an application-layer service that depends only on interfaces, includes validation, and returns Result<T>",
+        "Generate data access code directly in controllers"
+      ],
+      "rightAnswer": "Create an application-layer service that depends only on interfaces, includes validation, and returns Result<T>",
+      "explanation": "The prompt encodes architectural constraints and quality expectations."
+    },
+    {
+      "id": 57,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Why do GH-300 exam prompts often include explicit constraints (e.g., null handling, logging, tests)?",
+      "potentialAnswers": [
+        "To increase prompt length",
+        "To reduce ambiguity and guide correct behavior",
+        "To force Copilot to use newer frameworks",
+        "To bypass code review"
+      ],
+      "rightAnswer": "To reduce ambiguity and guide correct behavior",
+      "explanation": "Constraints significantly improve output correctness and exam relevance."
+    },
+    {
+      "id": 58,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Which prompt refinement strategy is MOST effective when Copilot produces incorrect logic?",
+      "potentialAnswers": [
+        "Repeat the same prompt multiple times",
+        "Add explicit edge cases and expected outcomes",
+        "Remove surrounding code context",
+        "Switch programming languages"
+      ],
+      "rightAnswer": "Add explicit edge cases and expected outcomes",
+      "explanation": "Clarifying intent and behavior is the most effective correction mechanism."
+    },
+    {
+      "id": 59,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "What is the main risk of using vague prompts like 'optimize this code'?",
+      "potentialAnswers": [
+        "Copilot may reduce readability or correctness",
+        "Copilot will refuse to respond",
+        "Copilot will only format the code",
+        "Copilot will delete tests"
+      ],
+      "rightAnswer": "Copilot may reduce readability or correctness",
+      "explanation": "Optimization without criteria can introduce unintended trade-offs."
+    },
+    {
+      "id": 60,
+      "topic": "Introduction to prompt engineering with GitHub Copilot",
+      "question": "Which prompt best supports safe refactoring?",
+      "potentialAnswers": [
+        "Rewrite the method",
+        "Refactor this method to improve readability without changing behavior and ensure existing tests still pass",
+        "Make it better",
+        "Change until performance improves"
+      ],
+      "rightAnswer": "Refactor this method to improve readability without changing behavior and ensure existing tests still pass",
+      "explanation": "Preserving behavior and validating with tests minimizes refactoring risk."
+    },
+    {
+      "id": 61,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "When reviewing legacy code, which Copilot Chat use is MOST appropriate?",
+      "potentialAnswers": [
+        "Ask Copilot to replace the code automatically",
+        "Ask Copilot to explain intent and highlight risky areas for review",
+        "Ask Copilot to approve the PR",
+        "Skip reading the code after the explanation"
+      ],
+      "rightAnswer": "Ask Copilot to explain intent and highlight risky areas for review",
+      "explanation": "Copilot accelerates understanding but does not replace human judgment."
+    },
+    {
+      "id": 62,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "Why should Copilot-assisted refactoring be performed incrementally?",
+      "potentialAnswers": [
+        "Copilot cannot handle large files",
+        "Small changes reduce regression risk",
+        "Copilot requires frequent restarts",
+        "Large refactors are faster"
+      ],
+      "rightAnswer": "Small changes reduce regression risk",
+      "explanation": "Incremental refactoring with tests aligns with safe engineering practices."
+    },
+    {
+      "id": 63,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "What is the safest way to use Copilot for documentation generation?",
+      "potentialAnswers": [
+        "Publish generated docs immediately",
+        "Generate drafts and validate against implementation",
+        "Replace README files entirely",
+        "Disable comments and docs"
+      ],
+      "rightAnswer": "Generate drafts and validate against implementation",
+      "explanation": "AI-generated documentation must be reviewed for accuracy."
+    },
+    {
+      "id": 64,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "Which task is Copilot LEAST suitable for?",
+      "potentialAnswers": [
+        "Drafting unit tests",
+        "Generating boilerplate",
+        "Final security approval decisions",
+        "Explaining code"
+      ],
+      "rightAnswer": "Final security approval decisions",
+      "explanation": "Security sign-off requires human accountability."
+    },
+    {
+      "id": 65,
+      "topic": "Using advanced GitHub Copilot features",
+      "question": "How does Copilot Chat primarily differ from inline suggestions?",
+      "potentialAnswers": [
+        "It runs code automatically",
+        "It supports multi-turn reasoning and context",
+        "It bypasses IDE linting",
+        "It enforces policies"
+      ],
+      "rightAnswer": "It supports multi-turn reasoning and context",
+      "explanation": "Chat is designed for conversational problem solving."
+    },
+    {
+      "id": 66,
+      "topic": "GitHub Copilot Across Environments",
+      "question": "When using Copilot CLI, which workflow is SAFEST for destructive commands?",
+      "potentialAnswers": [
+        "Run commands immediately",
+        "Request explanation and validate before execution",
+        "Disable shell history",
+        "Run in production first"
+      ],
+      "rightAnswer": "Request explanation and validate before execution",
+      "explanation": "Human validation is essential for irreversible operations."
+    },
+    {
+      "id": 67,
+      "topic": "GitHub Copilot Across Environments",
+      "question": "Which Copilot environment is best for drafting pull request summaries?",
+      "potentialAnswers": [
+        "IDE inline suggestions",
+        "Copilot on GitHub.com",
+        "Copilot CLI",
+        "Azure Portal"
+      ],
+      "rightAnswer": "Copilot on GitHub.com",
+      "explanation": "GitHub.com Copilot is optimized for collaboration and review."
+    },
+    {
+      "id": 68,
+      "topic": "GitHub Copilot Across Environments",
+      "question": "What is a key benefit of using Copilot across IDE and GitHub.com?",
+      "potentialAnswers": [
+        "Eliminates documentation",
+        "Maintains context from implementation to review",
+        "Removes need for CI",
+        "Replaces project management tools"
+      ],
+      "rightAnswer": "Maintains context from implementation to review",
+      "explanation": "Copilot supports the full development lifecycle."
+    },
+    {
+      "id": 69,
+      "topic": "GitHub Copilot Across Environments",
+      "question": "Why should shell commands generated by Copilot be treated cautiously?",
+      "potentialAnswers": [
+        "They may be syntactically incorrect",
+        "They can have irreversible side effects",
+        "They always fail",
+        "They are slower"
+      ],
+      "rightAnswer": "They can have irreversible side effects",
+      "explanation": "Commands can destroy data or infrastructure if misused."
+    },
+    {
+      "id": 70,
+      "topic": "GitHub Copilot Across Environments",
+      "question": "Which prompt best reflects safe CLI usage?",
+      "potentialAnswers": [
+        "Delete everything",
+        "Explain this command and suggest a safer alternative",
+        "Run cleanup",
+        "Fix my system"
+      ],
+      "rightAnswer": "Explain this command and suggest a safer alternative",
+      "explanation": "Explanation-first prompts reduce operational risk."
+    },
+    {
+      "id": 71,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Why might an organization restrict Copilot usage in certain repositories?",
+      "potentialAnswers": [
+        "To reduce subscription costs",
+        "To protect sensitive or regulated code",
+        "To improve IDE performance",
+        "To prevent unit testing"
+      ],
+      "rightAnswer": "To protect sensitive or regulated code",
+      "explanation": "Some repositories require stricter governance controls."
+    },
+    {
+      "id": 72,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Which practice BEST supports compliant Copilot adoption?",
+      "potentialAnswers": [
+        "Clear guidelines, training, and review requirements",
+        "No documentation",
+        "Disable security scanning",
+        "Allow unrestricted prompts"
+      ],
+      "rightAnswer": "Clear guidelines, training, and review requirements",
+      "explanation": "Governance enables safe and effective AI usage."
+    },
+    {
+      "id": 73,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "What should administrators periodically review?",
+      "potentialAnswers": [
+        "Prompt usage patterns and policy compliance",
+        "IDE themes",
+        "Monitor resolution",
+        "Keyboard layouts"
+      ],
+      "rightAnswer": "Prompt usage patterns and policy compliance",
+      "explanation": "Ongoing review ensures responsible usage."
+    },
+    {
+      "id": 74,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Which configuration reduces IP and licensing risk?",
+      "potentialAnswers": [
+        "Disabling code review",
+        "Restricting public code similarity suggestions",
+        "Allowing unrestricted AI output",
+        "Using Copilot only in production"
+      ],
+      "rightAnswer": "Restricting public code similarity suggestions",
+      "explanation": "Controls mitigate potential IP exposure."
+    },
+    {
+      "id": 75,
+      "topic": "Management and customization considerations with GitHub Copilot",
+      "question": "Why is developer training critical for Copilot adoption?",
+      "potentialAnswers": [
+        "To increase costs",
+        "To ensure effective and responsible use",
+        "To eliminate testing",
+        "To replace documentation"
+      ],
+      "rightAnswer": "To ensure effective and responsible use",
+      "explanation": "Education reduces misuse and risk."
+    },
+    {
+      "id": 76,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which scenario best demonstrates Copilot as a productivity multiplier?",
+      "potentialAnswers": [
+        "Replacing developers entirely",
+        "Accelerating routine coding so developers focus on design",
+        "Removing code reviews",
+        "Eliminating testing"
+      ],
+      "rightAnswer": "Accelerating routine coding so developers focus on design",
+      "explanation": "Copilot frees time for higher-value work."
+    },
+    {
+      "id": 77,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "How should senior engineers MOST effectively use Copilot?",
+      "potentialAnswers": [
+        "Ignore it",
+        "Use it to draft, reason, and review faster",
+        "Delegate all decisions to it",
+        "Use it only for comments"
+      ],
+      "rightAnswer": "Use it to draft, reason, and review faster",
+      "explanation": "Seniors use Copilot as a force multiplier."
+    },
+    {
+      "id": 78,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which task is LOWEST risk for Copilot assistance?",
+      "potentialAnswers": [
+        "Designing cryptographic algorithms",
+        "Approving security policies",
+        "Generating DTOs and mappings",
+        "Making legal decisions"
+      ],
+      "rightAnswer": "Generating DTOs and mappings",
+      "explanation": "Boilerplate is easy to validate."
+    },
+    {
+      "id": 79,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Why should Copilot not replace architectural decisions?",
+      "potentialAnswers": [
+        "It is slow",
+        "It lacks full domain and system context",
+        "It cannot generate code",
+        "It is deprecated"
+      ],
+      "rightAnswer": "It lacks full domain and system context",
+      "explanation": "Architecture requires deep contextual understanding."
+    },
+    {
+      "id": 80,
+      "topic": "Developer use cases for AI with GitHub Copilot",
+      "question": "Which behavior indicates unhealthy reliance on Copilot?",
+      "potentialAnswers": [
+        "Reviewing outputs carefully",
+        "Blindly accepting suggestions",
+        "Using Copilot for drafts",
+        "Refactoring incrementally"
+      ],
+      "rightAnswer": "Blindly accepting suggestions",
+      "explanation": "Uncritical acceptance increases risk."
+    },
+    {
+      "id": 81,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "What should be your FIRST action after Copilot generates unit tests?",
+      "potentialAnswers": [
+        "Commit immediately",
+        "Review assertions and edge cases",
+        "Disable failing tests",
+        "Ignore warnings"
+      ],
+      "rightAnswer": "Review assertions and edge cases",
+      "explanation": "Human validation is required."
+    },
+    {
+      "id": 82,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which code is hardest for Copilot to unit test accurately?",
+      "potentialAnswers": [
+        "Pure functions",
+        "Code with heavy side effects and external dependencies",
+        "Simple validators",
+        "Mapping logic"
+      ],
+      "rightAnswer": "Code with heavy side effects and external dependencies",
+      "explanation": "External interactions complicate testing."
+    },
+    {
+      "id": 83,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Why should Copilot-generated tests not be treated as complete coverage?",
+      "potentialAnswers": [
+        "They may miss edge cases",
+        "They do not compile",
+        "They always fail",
+        "They are too slow"
+      ],
+      "rightAnswer": "They may miss edge cases",
+      "explanation": "AI can overlook scenarios."
+    },
+    {
+      "id": 84,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "What improves Copilot's test generation quality MOST?",
+      "potentialAnswers": [
+        "Providing expected behavior and failure modes",
+        "Removing comments",
+        "Short method names",
+        "Disabling mocks"
+      ],
+      "rightAnswer": "Providing expected behavior and failure modes",
+      "explanation": "Clear intent yields better tests."
+    },
+    {
+      "id": 85,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which workflow BEST balances speed and quality?",
+      "potentialAnswers": [
+        "Generate tests, review, refine, then commit",
+        "Generate tests and deploy",
+        "Skip tests",
+        "Manual testing only"
+      ],
+      "rightAnswer": "Generate tests, review, refine, then commit",
+      "explanation": "This balances acceleration with correctness."
+    },
+    {
+      "id": 86,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "When should Copilot-generated tests be rejected?",
+      "potentialAnswers": [
+        "When verbose",
+        "When asserting incorrect behavior",
+        "When using a different assertion library",
+        "When including comments"
+      ],
+      "rightAnswer": "When asserting incorrect behavior",
+      "explanation": "Correctness outweighs style."
+    },
+    {
+      "id": 87,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which testing level is Copilot BEST suited to assist with?",
+      "potentialAnswers": [
+        "Unit testing",
+        "Penetration testing",
+        "Load testing",
+        "Hardware testing"
+      ],
+      "rightAnswer": "Unit testing",
+      "explanation": "Unit tests are deterministic and code-focused."
+    },
+    {
+      "id": 88,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Why must developers understand Copilot-generated tests?",
+      "potentialAnswers": [
+        "To satisfy the exam",
+        "To ensure alignment with business intent",
+        "To increase token usage",
+        "To reduce IDE memory"
+      ],
+      "rightAnswer": "To ensure alignment with business intent",
+      "explanation": "Understanding ensures correctness."
+    },
+    {
+      "id": 89,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Which signal indicates a GOOD Copilot-generated test?",
+      "potentialAnswers": [
+        "Many assertions",
+        "Clear expression of behavior under test",
+        "Newest framework usage",
+        "Very long test methods"
+      ],
+      "rightAnswer": "Clear expression of behavior under test",
+      "explanation": "Clarity and intent matter most."
+    },
+    {
+      "id": 90,
+      "topic": "Develop unit tests using GitHub Copilot tools",
+      "question": "Who owns long-term maintenance of Copilot-generated tests?",
+      "potentialAnswers": [
+        "GitHub",
+        "Microsoft",
+        "The Copilot model",
+        "The development team"
+      ],
+      "rightAnswer": "The development team",
+      "explanation": "Ownership remains with the team."
+    },
+    {
+      "id": 101,
+      "topic": "Responsible AI Principles",
+      "question": "Your organization enables GitHub Copilot for all developers. Which principle is MOST directly addressed by requiring mandatory code reviews for all AI-assisted changes?",
+      "potentialAnswers": [
+        "Fairness",
+        "Reliability and Safety",
+        "Accountability",
+        "Inclusiveness"
+      ],
+      "rightAnswer": "Accountability",
+      "explanation": "Mandatory reviews ensure humans remain responsible for decisions and outcomes produced with AI assistance."
+    },
+    {
+      "id": 102,
+      "topic": "Responsible AI Principles",
+      "question": "A developer claims that Copilot-generated code does not need review because it was trained on high-quality open-source projects. Which Responsible AI principle does this assumption violate?",
+      "potentialAnswers": [
+        "Transparency",
+        "Accountability",
+        "Privacy and Security",
+        "Inclusiveness"
+      ],
+      "rightAnswer": "Accountability",
+      "explanation": "Regardless of training data quality, humans remain accountable for validating and approving AI-assisted outputs."
+    },
+    {
+      "id": 103,
+      "topic": "Responsible AI Principles",
+      "question": "Which action BEST supports the Responsible AI principle of Transparency when using GitHub Copilot?",
+      "potentialAnswers": [
+        "Hiding Copilot usage from audit logs",
+        "Documenting where and how AI assistance is used in development",
+        "Disabling comments generated by Copilot",
+        "Restricting Copilot to senior engineers only"
+      ],
+      "rightAnswer": "Documenting where and how AI assistance is used in development",
+      "explanation": "Transparency requires clarity about when AI is used and how it influences decisions and outputs."
+    },
+    {
+      "id": 104,
+      "topic": "Responsible AI Principles",
+      "question": "A team uses Copilot to generate user-facing error messages without review. Which Responsible AI risk does this MOST directly introduce?",
+      "potentialAnswers": [
+        "Reduced performance",
+        "Potential biased or inappropriate language reaching users",
+        "Increased infrastructure cost",
+        "Lower test coverage"
+      ],
+      "rightAnswer": "Potential biased or inappropriate language reaching users",
+      "explanation": "User-facing content must be reviewed to prevent biased, harmful, or misleading outputs."
+    },
+    {
+      "id": 105,
+      "topic": "Responsible AI Principles",
+      "question": "Which practice BEST aligns with the Responsible AI principle of Reliability and Safety when using Copilot?",
+      "potentialAnswers": [
+        "Trusting Copilot output if it compiles successfully",
+        "Validating AI-generated code through testing, scanning, and review",
+        "Using Copilot only during prototyping",
+        "Limiting Copilot usage to comments only"
+      ],
+      "rightAnswer": "Validating AI-generated code through testing, scanning, and review",
+      "explanation": "Reliability and safety require systematic validation to ensure consistent and safe behavior."
+    },
+    {
+      "id": 106,
+      "topic": "Responsible AI Principles",
+      "question": "Why does Microsoft guidance recommend avoiding secrets in Copilot prompts from a Responsible AI perspective?",
+      "potentialAnswers": [
+        "Secrets reduce Copilot accuracy",
+        "Secrets may violate privacy and security principles",
+        "Secrets cannot be tokenized correctly",
+        "Secrets slow down AI responses"
+      ],
+      "rightAnswer": "Secrets may violate privacy and security principles",
+      "explanation": "Privacy and security principles require protecting sensitive information from unintended exposure."
+    },
+    {
+      "id": 107,
+      "topic": "Responsible AI Principles",
+      "question": "Which scenario BEST demonstrates alignment with the Responsible AI principle of Fairness?",
+      "potentialAnswers": [
+        "Allowing Copilot to generate code without constraints",
+        "Reviewing AI-generated outputs to detect biased logic or assumptions",
+        "Using Copilot only in backend services",
+        "Disabling Copilot Chat for junior developers"
+      ],
+      "rightAnswer": "Reviewing AI-generated outputs to detect biased logic or assumptions",
+      "explanation": "Fairness requires actively identifying and mitigating biased outcomes in AI-assisted work."
+    },
+    {
+      "id": 108,
+      "topic": "Responsible AI Principles",
+      "question": "A manager states that Copilot decisions should override human judgment to ensure consistency. Which Responsible AI principle is MOST clearly violated?",
+      "potentialAnswers": [
+        "Inclusiveness",
+        "Transparency",
+        "Accountability",
+        "Reliability"
+      ],
+      "rightAnswer": "Accountability",
+      "explanation": "Responsible AI requires humans to retain decision-making authority and responsibility."
+    },
+    {
+      "id": 109,
+      "topic": "Responsible AI Principles",
+      "question": "Which organizational measure MOST directly supports the Responsible AI principle of Privacy and Security when adopting Copilot?",
+      "potentialAnswers": [
+        "Training developers on prompt clarity",
+        "Establishing policies on what data may be included in prompts",
+        "Encouraging faster code generation",
+        "Reducing documentation requirements"
+      ],
+      "rightAnswer": "Establishing policies on what data may be included in prompts",
+      "explanation": "Clear data-handling policies prevent exposure of sensitive or regulated information."
+    },
+    {
+      "id": 110,
+      "topic": "Responsible AI Principles",
+      "question": "Which statement BEST reflects Microsoft’s Responsible AI stance regarding AI-assisted software development?",
+      "potentialAnswers": [
+        "AI systems are responsible for their own outputs",
+        "AI replaces the need for engineering judgment",
+        "Humans remain accountable for AI-assisted decisions and outcomes",
+        "AI eliminates compliance obligations"
+      ],
+      "rightAnswer": "Humans remain accountable for AI-assisted decisions and outcomes",
+      "explanation": "This is the core Responsible AI principle tested heavily in the GH-300 exam."
+    }
+  ]
+};
+
+        // Quiz State
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let userName = '';
+        let questionOrder = 'sequential';
+        let answered = false;
+
+        // Get unique categories from questions
+        function getCategories() {
+            const categories = [...new Set(quizData.questions.map(q => q.topic))];
+            return categories.sort();
+        }
+
+        // Populate category dropdown
+        function populateCategoryDropdown() {
+            const select = document.getElementById('categorySelect');
+            const categories = getCategories();
+            
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                select.appendChild(option);
+            });
+        }
+
+        // Update max questions based on category
+        function updateQuestionCountMax() {
+            const category = document.getElementById('categorySelect').value;
+            let availableQuestions;
+            
+            if (category === 'all') {
+                availableQuestions = quizData.questions.length;
+            } else {
+                availableQuestions = quizData.questions.filter(q => q.topic === category).length;
+            }
+            
+            const input = document.getElementById('questionCount');
+            input.max = availableQuestions;
+            input.placeholder = `All (${availableQuestions} available)`;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            questions = [...quizData.questions];
+            console.log(`Loaded ${questions.length} questions`);
+            
+            // Populate categories
+            populateCategoryDropdown();
+            updateQuestionCountMax();
+            
+            // Update max when category changes
+            document.getElementById('categorySelect').addEventListener('change', updateQuestionCountMax);
+            
+            // Allow Enter key to start quiz
+            document.getElementById('userName').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    startQuiz();
+                }
+            });
+        });
+
+        // Select question order
+        function selectOrder(order) {
+            questionOrder = order;
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.order === order);
+            });
+        }
+
+        // Shuffle array using Fisher-Yates algorithm
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Start the quiz
+        function startQuiz() {
+            userName = document.getElementById('userName').value.trim() || 'Guest';
+            
+            // Get selected category
+            const selectedCategory = document.getElementById('categorySelect').value;
+            
+            // Filter questions by category
+            let filteredQuestions;
+            if (selectedCategory === 'all') {
+                filteredQuestions = [...quizData.questions];
+            } else {
+                filteredQuestions = quizData.questions.filter(q => q.topic === selectedCategory);
+            }
+            
+            // Get question count
+            const questionCountInput = document.getElementById('questionCount').value;
+            let questionCount = questionCountInput ? parseInt(questionCountInput) : filteredQuestions.length;
+            questionCount = Math.min(Math.max(1, questionCount), filteredQuestions.length);
+
+            // Apply question order
+            if (questionOrder === 'shuffle') {
+                questions = shuffleArray(filteredQuestions);
+            } else {
+                questions = [...filteredQuestions].sort((a, b) => a.id - b.id);
+            }
+            
+            // Limit to requested number of questions
+            questions = questions.slice(0, questionCount);
+
+            // Reset state
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            answered = false;
+
+            // Update UI
+            document.getElementById('displayName').textContent = userName;
+            document.getElementById('totalQ').textContent = questions.length;
+
+            // Show quiz screen
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'block';
+            document.getElementById('resultsScreen').style.display = 'none';
+
+            // Load first question
+            loadQuestion();
+        }
+
+        // Load current question
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            answered = userAnswers[currentQuestionIndex] !== null;
+
+            // Update progress
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('currentQ').textContent = currentQuestionIndex + 1;
+
+            // Update correct count
+            const correctCount = userAnswers.filter((answer, idx) => 
+                answer !== null && answer === questions[idx].rightAnswer
+            ).length;
+            document.getElementById('correctCount').textContent = correctCount;
+
+            // Update topic and question
+            document.getElementById('topicBadge').textContent = question.topic;
+            document.getElementById('questionText').textContent = question.question;
+
+            // Generate answer options
+            const answersList = document.getElementById('answersList');
+            answersList.innerHTML = '';
+
+            const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+            question.potentialAnswers.forEach((answer, index) => {
+                const option = document.createElement('div');
+                option.className = 'answer-option';
+                option.dataset.answer = answer;
+                
+                option.innerHTML = `
+                    <span class="option-letter">${letters[index]}</span>
+                    <span class="option-text">${answer}</span>
+                `;
+
+                // If already answered, show the state
+                if (answered) {
+                    option.classList.add('disabled');
+                    if (answer === question.rightAnswer) {
+                        option.classList.add('correct');
+                    }
+                    if (answer === userAnswers[currentQuestionIndex] && answer !== question.rightAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                    if (answer === userAnswers[currentQuestionIndex]) {
+                        option.classList.add('selected');
+                    }
+                } else {
+                    option.addEventListener('click', () => selectAnswer(answer, option));
+                }
+
+                answersList.appendChild(option);
+            });
+
+            // Show/hide feedback
+            const feedback = document.getElementById('feedback');
+            if (answered) {
+                showFeedback(userAnswers[currentQuestionIndex] === question.rightAnswer, question);
+            } else {
+                feedback.style.display = 'none';
+            }
+
+            // Update navigation buttons
+            updateNavButtons();
+
+            // Add animation
+            document.querySelector('.quiz-screen .card, .quiz-screen').classList.add('fade-in');
+        }
+
+        // Select an answer
+        function selectAnswer(answer, optionElement) {
+            if (answered) return;
+
+            answered = true;
+            userAnswers[currentQuestionIndex] = answer;
+
+            const question = questions[currentQuestionIndex];
+            const isCorrect = answer === question.rightAnswer;
+
+            // Update all options
+            document.querySelectorAll('.answer-option').forEach(opt => {
+                opt.classList.add('disabled');
+                const optAnswer = opt.dataset.answer;
+                
+                if (optAnswer === question.rightAnswer) {
+                    opt.classList.add('correct');
+                }
+                if (optAnswer === answer && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+                if (optAnswer === answer) {
+                    opt.classList.add('selected');
+                }
+            });
+
+            // Show feedback
+            showFeedback(isCorrect, question);
+
+            // Update correct count
+            const correctCount = userAnswers.filter((ans, idx) => 
+                ans !== null && ans === questions[idx].rightAnswer
+            ).length;
+            document.getElementById('correctCount').textContent = correctCount;
+
+            // Update navigation
+            updateNavButtons();
+        }
+
+        // Show feedback after answering
+        function showFeedback(isCorrect, question) {
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'} fade-in`;
+
+            document.getElementById('feedbackIcon').textContent = isCorrect ? '✓' : '✗';
+            document.getElementById('feedbackText').textContent = isCorrect ? 'Correct!' : 'Incorrect!';
+            
+            if (!isCorrect) {
+                document.getElementById('correctAnswerDisplay').innerHTML = 
+                    `<strong>Correct answer:</strong> ${question.rightAnswer}`;
+                document.getElementById('correctAnswerDisplay').style.display = 'block';
+            } else {
+                document.getElementById('correctAnswerDisplay').style.display = 'none';
+            }
+
+            document.getElementById('explanationText').textContent = question.explanation;
+        }
+
+        // Update navigation buttons state
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            prevBtn.disabled = currentQuestionIndex === 0;
+
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.textContent = answered ? 'Finish Quiz 🏁' : 'Next →';
+            } else {
+                nextBtn.textContent = 'Next →';
+            }
+
+            nextBtn.disabled = !answered;
+        }
+
+        // Navigate to previous question
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        // Navigate to next question or finish
+        function nextQuestion() {
+            if (!answered) return;
+
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                answered = userAnswers[currentQuestionIndex] !== null;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show results screen
+        function showResults() {
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('resultsScreen').style.display = 'block';
+            document.getElementById('reviewSection').classList.add('hidden');
+
+            // Calculate scores
+            let correct = 0;
+            let incorrect = 0;
+
+            userAnswers.forEach((answer, index) => {
+                if (answer === questions[index].rightAnswer) {
+                    correct++;
+                } else {
+                    incorrect++;
+                }
+            });
+
+            const total = questions.length;
+            const percentage = Math.round((correct / total) * 100);
+
+            // Update display
+            document.getElementById('resultName').textContent = userName;
+            document.getElementById('finalCorrect').textContent = correct;
+            document.getElementById('finalIncorrect').textContent = incorrect;
+            document.getElementById('finalTotal').textContent = total;
+            document.getElementById('percentageText').textContent = percentage;
+
+            // Animate percentage bar
+            setTimeout(() => {
+                document.getElementById('percentageFill').style.width = `${percentage}%`;
+            }, 100);
+
+            // Set icon and message based on score
+            let icon, title, message;
+            if (percentage >= 90) {
+                icon = '🏆';
+                title = 'Outstanding!';
+                message = `Incredible performance, ${userName}! You're ready for the GH-300 certification! 🌟`;
+            } else if (percentage >= 70) {
+                icon = '🎉';
+                title = 'Great Job!';
+                message = `Well done, ${userName}! You have a solid understanding. Review the questions you missed to ace the exam!`;
+            } else if (percentage >= 50) {
+                icon = '💪';
+                title = 'Good Effort!';
+                message = `Nice try, ${userName}! Keep studying the topics you struggled with. You're on the right track!`;
+            } else {
+                icon = '📚';
+                title = 'Keep Learning!';
+                message = `Don't give up, ${userName}! Review the study materials and try again. Every practice makes you better!`;
+            }
+
+            document.getElementById('resultsIcon').textContent = icon;
+            document.getElementById('resultsTitle').textContent = title;
+            document.getElementById('resultsMessage').textContent = message;
+        }
+
+        // Review answers
+        function reviewAnswers() {
+            const reviewSection = document.getElementById('reviewSection');
+            const reviewList = document.getElementById('reviewList');
+            
+            if (!reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.add('hidden');
+                return;
+            }
+
+            reviewList.innerHTML = '';
+
+            questions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.rightAnswer;
+
+                const item = document.createElement('div');
+                item.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
+                item.innerHTML = `
+                    <div class="q-number">Question ${index + 1} (ID: ${question.id}) - ${isCorrect ? '✓ Correct' : '✗ Incorrect'}</div>
+                    <div class="q-text">${question.question}</div>
+                    <div class="your-answer">
+                        Your answer: <strong>${userAnswer || 'Not answered'}</strong>
+                        ${!isCorrect ? `<br>Correct answer: <strong style="color: #10b981">${question.rightAnswer}</strong>` : ''}
+                    </div>
+                `;
+                reviewList.appendChild(item);
+            });
+
+            reviewSection.classList.remove('hidden');
+            reviewSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Restart the quiz
+        function restartQuiz() {
+            document.getElementById('startScreen').style.display = 'block';
+            document.getElementById('quizScreen').style.display = 'none';
+            document.getElementById('resultsScreen').style.display = 'none';
+            document.getElementById('userName').value = userName;
+        }
+    </script>
+</body>
+</html>
