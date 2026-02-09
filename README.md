@@ -73,6 +73,51 @@ This project is designed to help developers prepare for the GitHub Copilot Certi
    start src/quiz.html
    ```
 
+## 💾 Database
+
+This application uses a **file-based JSON database** approach for storing quiz questions. No external database server or setup is required.
+
+### Data Storage Structure
+
+- **questions.json**: Primary quiz questions database containing 50+ questions for the GH-300 certification exam
+- **questions2.json**: Additional quiz questions database with extended question sets
+
+### JSON Schema
+
+Each question in the database follows this structure:
+
+```json
+{
+  "id": 1,
+  "topic": "Responsible AI with GitHub Copilot",
+  "question": "Question text here?",
+  "potentialAnswers": [
+    "Answer option 1",
+    "Answer option 2",
+    "Answer option 3",
+    "Answer option 4"
+  ],
+  "rightAnswer": "The correct answer",
+  "explanation": "Detailed explanation of why this is the correct answer"
+}
+```
+
+### Adding New Questions
+
+To add new questions to the quiz:
+
+1. Open `src/questions.json` or `src/questions2.json`
+2. Add a new question object following the schema above
+3. Ensure the `id` is unique
+4. Assign an appropriate `topic` (existing topics include: "Responsible AI with GitHub Copilot", "GitHub Copilot Features", "Best Practices", "Governance and Compliance")
+5. Save the file - no database migration or server restart needed!
+
+### Data Persistence
+
+- **Quiz State**: Currently stored in browser memory during the quiz session
+- **Question Data**: Static JSON files loaded when the quiz starts
+- **No Backend Required**: The application runs entirely client-side with no server or database dependencies
+
 ## 📚 Study Materials
 
 - **Practical.md**: Contains practical notes about GitHub Copilot features including:
