@@ -725,12 +725,12 @@
         // Embedded Questions Data
         const quizData = {
   "exam": "GitHub Copilot Certification GH-300",
-  "totalQuestions": 90,
+  "totalQuestions": 200,
   "questions": [
     {
       "id": 1,
       "topic": "Responsible AI with GitHub Copilot",
-      "question": "What is GitHub Copilot's primary responsibility regarding generated code?",
+      "question": "What is GitHub Copilot’s primary responsibility regarding generated code?",
       "potentialAnswers": [
         "Guarantee production-ready code",
         "Replace human code review and approval",
@@ -862,18 +862,18 @@
       "topic": "Introduction to prompt engineering with GitHub Copilot",
       "question": "Which prompt is most likely to produce a correct and maintainable result?",
       "potentialAnswers": [
-        "\"Make it work.\"",
-        "\"Write code for this.\"",
-        "\"Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.\"",
-        "\"Do the thing I mean.\""
+        "“Make it work.”",
+        "“Write code for this.”",
+        "“Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.”",
+        "“Do the thing I mean.”"
       ],
-      "rightAnswer": "\"Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.\"",
+      "rightAnswer": "“Create a C# method ValidateEmail(string email) that returns bool using MailAddress parsing, and include null/empty checks.”",
       "explanation": "Specific requirements (language, signature, approach, constraints) reduce ambiguity and improve quality."
     },
     {
       "id": 12,
       "topic": "Introduction to prompt engineering with GitHub Copilot",
-      "question": "You want Copilot to follow your team's style and patterns. What is the best approach?",
+      "question": "You want Copilot to follow your team’s style and patterns. What is the best approach?",
       "potentialAnswers": [
         "Use shorter variable names so Copilot has less to copy",
         "Provide a small example in the same file that demonstrates the desired pattern",
@@ -890,7 +890,7 @@
       "potentialAnswers": [
         "Repeat the same prompt verbatim until it changes",
         "Add constraints such as edge cases, performance limits, and required libraries, then ask again",
-        "Remove all context and ask only \"fix it\"",
+        "Remove all context and ask only “fix it”",
         "Switch to an unrelated programming language"
       ],
       "rightAnswer": "Add constraints such as edge cases, performance limits, and required libraries, then ask again",
@@ -914,12 +914,12 @@
       "topic": "Introduction to prompt engineering with GitHub Copilot",
       "question": "Which prompt is best for refactoring an existing method safely?",
       "potentialAnswers": [
-        "\"Refactor.\"",
-        "\"Rewrite everything.\"",
-        "\"Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.\"",
-        "\"Make it faster no matter what.\""
+        "“Refactor.”",
+        "“Rewrite everything.”",
+        "“Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.”",
+        "“Make it faster no matter what.”"
       ],
-      "rightAnswer": "\"Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.\"",
+      "rightAnswer": "“Refactor this method to reduce duplication, keep behavior identical, and add unit tests for edge cases.”",
       "explanation": "It specifies constraints (no behavior change) and quality goals (tests), reducing refactoring risk."
     },
     {
@@ -1008,7 +1008,7 @@
         "Only the method name",
         "The method code plus a list of edge cases and the desired framework (e.g., xUnit)",
         "A screenshot of your IDE theme",
-        "A single word: \"tests\""
+        "A single word: “tests”"
       ],
       "rightAnswer": "The method code plus a list of edge cases and the desired framework (e.g., xUnit)",
       "explanation": "Tests improve when Copilot knows the behavior, edge cases, and the framework conventions."
@@ -1054,7 +1054,7 @@
     },
     {
       "id": 26,
-      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com ",
       "question": "When working in a terminal, what is a typical Copilot CLI use case?",
       "potentialAnswers": [
         "Rendering HTML components",
@@ -1067,7 +1067,7 @@
     },
     {
       "id": 27,
-      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com ",
       "question": "On GitHub.com, which activity is Copilot most commonly used to accelerate?",
       "potentialAnswers": [
         "Changing your laptop firmware",
@@ -1080,7 +1080,7 @@
     },
     {
       "id": 28,
-      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com ",
       "question": "Which approach best leverages Copilot when switching between IDE and GitHub.com?",
       "potentialAnswers": [
         "Use Copilot only in one environment to avoid inconsistency",
@@ -1093,7 +1093,7 @@
     },
     {
       "id": 29,
-      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com ",
       "question": "What is a safe workflow when using Copilot to generate a potentially destructive command (e.g., deleting resources)?",
       "potentialAnswers": [
         "Run the command immediately to save time",
@@ -1106,20 +1106,20 @@
     },
     {
       "id": 30,
-      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com, and Command Line Techniques",
+      "topic": "GitHub Copilot Across Environments: IDE, Chat, GitHub.com ",
       "question": "Which is a strong prompt for Copilot CLI when troubleshooting?",
       "potentialAnswers": [
-        "\"help\"",
-        "\"fix my computer\"",
-        "\"Explain what this command does and suggest a safer alternative: rm -rf ./build\"",
-        "\"run anything to clean up\""
+        "“help”",
+        "“fix my computer”",
+        "“Explain what this command does and suggest a safer alternative: rm -rf ./build”",
+        "“run anything to clean up”"
       ],
-      "rightAnswer": "\"Explain what this command does and suggest a safer alternative: rm -rf ./build\"",
+      "rightAnswer": "“Explain what this command does and suggest a safer alternative: rm -rf ./build”",
       "explanation": "It provides the exact command and asks for explanation plus safer alternatives."
     },
     {
       "id": 31,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "In an organization, who typically controls whether developers can use Copilot?",
       "potentialAnswers": [
         "The local IDE vendor",
@@ -1132,7 +1132,7 @@
     },
     {
       "id": 32,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Which control is most relevant for reducing compliance risk in Copilot usage?",
       "potentialAnswers": [
         "Restricting who can install fonts in the IDE",
@@ -1145,7 +1145,7 @@
     },
     {
       "id": 33,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Why might an admin restrict Copilot in certain repositories?",
       "potentialAnswers": [
         "To reduce the number of unit tests",
@@ -1158,7 +1158,7 @@
     },
     {
       "id": 34,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "A team wants Copilot suggestions to match their Clean Architecture layering rules. What is the best operational approach?",
       "potentialAnswers": [
         "Ignore layering; fix it later in production",
@@ -1171,7 +1171,7 @@
     },
     {
       "id": 35,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Which practice helps teams safely adopt Copilot at scale?",
       "potentialAnswers": [
         "Remove code review to accelerate delivery",
@@ -1202,7 +1202,7 @@
       "potentialAnswers": [
         "Ask Copilot to summarize the module, then confirm by reading key entry points and tests",
         "Ask Copilot to delete the module and regenerate it",
-        "Assume Copilot's summary is correct and skip reading code",
+        "Assume Copilot’s summary is correct and skip reading code",
         "Disable code navigation to focus on the chat"
       ],
       "rightAnswer": "Ask Copilot to summarize the module, then confirm by reading key entry points and tests",
@@ -1213,12 +1213,12 @@
       "topic": "Developer use cases for AI with GitHub Copilot",
       "question": "Which prompt best supports generating an implementation plan (not code) for a feature?",
       "potentialAnswers": [
-        "\"Write it.\"",
-        "\"Give me steps to implement feature X, include risks, edge cases, and a testing checklist.\"",
-        "\"Do everything automatically.\"",
-        "\"No details, just code.\""
+        "“Write it.”",
+        "“Give me steps to implement feature X, include risks, edge cases, and a testing checklist.”",
+        "“Do everything automatically.”",
+        "“No details, just code.”"
       ],
-      "rightAnswer": "\"Give me steps to implement feature X, include risks, edge cases, and a testing checklist.\"",
+      "rightAnswer": "“Give me steps to implement feature X, include risks, edge cases, and a testing checklist.”",
       "explanation": "A planning prompt requests structure (steps, risks, tests), which produces actionable guidance."
     },
     {
@@ -1250,7 +1250,7 @@
     {
       "id": 41,
       "topic": "Develop unit tests using GitHub Copilot tools",
-      "question": "What is the best description of Copilot's role in unit testing?",
+      "question": "What is the best description of Copilot’s role in unit testing?",
       "potentialAnswers": [
         "It automatically executes tests in CI",
         "It can draft unit tests that you review and refine",
@@ -1265,12 +1265,12 @@
       "topic": "Develop unit tests using GitHub Copilot tools",
       "question": "Which prompt is most effective to generate xUnit tests for a method?",
       "potentialAnswers": [
-        "\"Write tests.\"",
-        "\"Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.\"",
-        "\"Test it quickly.\"",
-        "\"Make coverage high.\""
+        "“Write tests.”",
+        "“Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.”",
+        "“Test it quickly.”",
+        "“Make coverage high.”"
       ],
-      "rightAnswer": "\"Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.\"",
+      "rightAnswer": "“Generate xUnit tests for this method, include edge cases (null, empty, invalid), and use FluentAssertions.”",
       "explanation": "It specifies framework, edge cases, and assertion style—leading to more usable tests."
     },
     {
@@ -1372,9 +1372,9 @@
         "GitHub",
         "Microsoft",
         "The Copilot model",
-        "The developer and the team's review process"
+        "The developer and the team’s review process"
       ],
-      "rightAnswer": "The developer and the team's review process",
+      "rightAnswer": "The developer and the team’s review process",
       "explanation": "AI assists, but engineering accountability remains with the humans who write, review, and ship the software."
     },
     {
@@ -1432,7 +1432,7 @@
     {
       "id": 55,
       "topic": "Responsible AI with GitHub Copilot",
-      "question": "Which statement best reflects Microsoft's position on Copilot and compliance?",
+      "question": "Which statement best reflects Microsoft’s position on Copilot and compliance?",
       "potentialAnswers": [
         "Copilot guarantees regulatory compliance",
         "Compliance shifts to the AI provider",
@@ -1639,7 +1639,7 @@
     },
     {
       "id": 71,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Why might an organization restrict Copilot usage in certain repositories?",
       "potentialAnswers": [
         "To reduce subscription costs",
@@ -1652,7 +1652,7 @@
     },
     {
       "id": 72,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Which practice BEST supports compliant Copilot adoption?",
       "potentialAnswers": [
         "Clear guidelines, training, and review requirements",
@@ -1665,7 +1665,7 @@
     },
     {
       "id": 73,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "What should administrators periodically review?",
       "potentialAnswers": [
         "Prompt usage patterns and policy compliance",
@@ -1678,7 +1678,7 @@
     },
     {
       "id": 74,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Which configuration reduces IP and licensing risk?",
       "potentialAnswers": [
         "Disabling code review",
@@ -1691,7 +1691,7 @@
     },
     {
       "id": 75,
-      "topic": "Management and customization considerations with GitHub Copilot",
+      "topic": "Management and customization considerations with Copilot",
       "question": "Why is developer training critical for Copilot adoption?",
       "potentialAnswers": [
         "To increase costs",
@@ -1809,7 +1809,7 @@
     {
       "id": 84,
       "topic": "Develop unit tests using GitHub Copilot tools",
-      "question": "What improves Copilot's test generation quality MOST?",
+      "question": "What improves Copilot’s test generation quality MOST?",
       "potentialAnswers": [
         "Providing expected behavior and failure modes",
         "Removing comments",
@@ -2026,6 +2026,1306 @@
       ],
       "rightAnswer": "Humans remain accountable for AI-assisted decisions and outcomes",
       "explanation": "This is the core Responsible AI principle tested heavily in the GH-300 exam."
+    },
+    {
+      "id": 111,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "You enable agent mode to implement a feature that touches multiple layers (API, domain, persistence). What is the MOST appropriate way to constrain the agent before it starts?",
+      "potentialAnswers": [
+        "Tell the agent to \u0027make it work\u0027 and let it decide the architecture",
+        "Provide acceptance criteria, architectural constraints, and what must NOT change (public APIs, contracts)",
+        "Ask the agent to rewrite the entire solution for consistency",
+        "Disable tests so the agent can iterate faster"
+      ],
+      "rightAnswer": "Provide acceptance criteria, architectural constraints, and what must NOT change (public APIs, contracts)",
+      "explanation": "Agent mode is strongest when the goal and guardrails are explicit; constraints prevent unintended architectural or contract-breaking changes."
+    },
+    {
+      "id": 112,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode proposes updating a shared library used by many services. What is the BEST next step before accepting the change set?",
+      "potentialAnswers": [
+        "Accept the change set if it compiles",
+        "Request a risk summary and validate with dependency impact analysis and tests across consumers",
+        "Merge first and fix downstream failures later",
+        "Ask the agent to remove all breaking changes by renaming assemblies"
+      ],
+      "rightAnswer": "Request a risk summary and validate with dependency impact analysis and tests across consumers",
+      "explanation": "Multi-consumer changes require impact analysis and broad testing; compilation alone is insufficient."
+    },
+    {
+      "id": 113,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "During agent execution, it assumes a default authentication scheme that differs from your org standard. What should you do?",
+      "potentialAnswers": [
+        "Let it proceed; standards can be adjusted later",
+        "Stop the agent and restate the org standard (auth scheme, libraries, patterns) as a constraint",
+        "Accept the change but add a TODO comment",
+        "Disable agent mode permanently"
+      ],
+      "rightAnswer": "Stop the agent and restate the org standard (auth scheme, libraries, patterns) as a constraint",
+      "explanation": "Early intervention with explicit constraints prevents security drift."
+    },
+    {
+      "id": 114,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode creates a new helper that duplicates existing utilities in the repo. What is the MOST exam-appropriate response?",
+      "potentialAnswers": [
+        "Keep both; duplication improves resilience",
+        "Direct the agent to reuse existing utilities and remove duplication, then rerun affected tests",
+        "Accept the duplication if the helper has more features",
+        "Move the duplicated helper into a new package"
+      ],
+      "rightAnswer": "Direct the agent to reuse existing utilities and remove duplication, then rerun affected tests",
+      "explanation": "Single source of truth reduces maintenance risk; validate refactors with tests."
+    },
+    {
+      "id": 115,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "An agent-generated PR includes code changes but no updates to documentation or changelog, despite behavior changes. What is the BEST next step?",
+      "potentialAnswers": [
+        "Approve if tests pass",
+        "Request the agent to update docs/release notes and ensure the PR explains behavioral changes",
+        "Add a short comment \u0027docs later\u0027 and merge",
+        "Squash merge to hide the missing documentation"
+      ],
+      "rightAnswer": "Request the agent to update docs/release notes and ensure the PR explains behavioral changes",
+      "explanation": "Enterprise-quality PRs include documentation and clear change communication."
+    },
+    {
+      "id": 116,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent adds a new dependency that is not approved in your organization. Which action BEST aligns with governance?",
+      "potentialAnswers": [
+        "Keep it if it reduces code size",
+        "Reject the dependency and instruct the agent to use approved alternatives",
+        "Vendor the dependency source into your repo",
+        "Ignore the policy for internal tools"
+      ],
+      "rightAnswer": "Reject the dependency and instruct the agent to use approved alternatives",
+      "explanation": "Approved dependency lists exist for security/legal reasons; follow them."
+    },
+    {
+      "id": 117,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode suggests persisting secrets in a configuration file committed to the repo. What is the MOST appropriate correction?",
+      "potentialAnswers": [
+        "Accept it for development and remove later",
+        "Instruct the agent to use a secret store (e.g., environment variables/Key Vault) and remove secrets from code",
+        "Base64-encode the secrets and keep them in config",
+        "Move secrets to a private gist"
+      ],
+      "rightAnswer": "Instruct the agent to use a secret store (e.g., environment variables/Key Vault) and remove secrets from code",
+      "explanation": "Secrets must not be committed; use secret management and rotate if exposed."
+    },
+    {
+      "id": 118,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode produced a large change set. What is the BEST way to reduce risk before merging?",
+      "potentialAnswers": [
+        "Merge as a single PR to minimize overhead",
+        "Ask the agent to split changes into smaller PRs with clear scopes and run tests per PR",
+        "Disable CI to speed up the pipeline",
+        "Cherry-pick random commits that look correct"
+      ],
+      "rightAnswer": "Ask the agent to split changes into smaller PRs with clear scopes and run tests per PR",
+      "explanation": "Smaller PRs improve review quality and isolate regressions."
+    },
+    {
+      "id": 119,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent proposes changing a public API response shape to simplify internal code. What is the BEST response?",
+      "potentialAnswers": [
+        "Approve because internal code quality is priority",
+        "Reject; require backward compatibility or versioning and update contract tests",
+        "Accept if only one consumer exists today",
+        "Add a comment that clients must update"
+      ],
+      "rightAnswer": "Reject; require backward compatibility or versioning and update contract tests",
+      "explanation": "Public contracts must be stable; use versioning and contract tests for changes."
+    },
+    {
+      "id": 120,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode is asked to \u0027improve performance\u0027 and proposes removing input validation. What is the MOST correct action?",
+      "potentialAnswers": [
+        "Accept; validation is slow",
+        "Reject; require performance changes that preserve correctness and security",
+        "Accept if you add a try/catch around the method",
+        "Move validation to the UI only"
+      ],
+      "rightAnswer": "Reject; require performance changes that preserve correctness and security",
+      "explanation": "Performance must not compromise safety/correctness; keep validation at trust boundaries."
+    },
+    {
+      "id": 121,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode modifies generated code (tool output) directly instead of adjusting the generator/template. What is the BEST guidance?",
+      "potentialAnswers": [
+        "Direct modification is fine if tests pass",
+        "Update the generator/template so changes are reproducible and wonâ€™t be overwritten",
+        "Disable generation permanently",
+        "Copy the generated files into a different folder"
+      ],
+      "rightAnswer": "Update the generator/template so changes are reproducible and wonâ€™t be overwritten",
+      "explanation": "Fix the source of truth to prevent future overwrites and drift."
+    },
+    {
+      "id": 122,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent introduces a new caching layer but provides no invalidation strategy. What is the BEST next step?",
+      "potentialAnswers": [
+        "Merge and monitor cache issues in production",
+        "Require a documented invalidation strategy and tests for stale data scenarios",
+        "Disable caching everywhere",
+        "Set cache TTL to 10 years"
+      ],
+      "rightAnswer": "Require a documented invalidation strategy and tests for stale data scenarios",
+      "explanation": "Caching requires correct invalidation; tests must cover stale-data behavior."
+    },
+    {
+      "id": 123,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent adds logging that includes full request bodies that may contain PII. What is the MOST appropriate action?",
+      "potentialAnswers": [
+        "Keep logs for easier debugging",
+        "Redact or avoid logging sensitive fields and align with data retention policies",
+        "Only log PII in production, not dev",
+        "Compress logs to reduce exposure"
+      ],
+      "rightAnswer": "Redact or avoid logging sensitive fields and align with data retention policies",
+      "explanation": "Privacy principle: minimize sensitive data exposure; follow retention policies."
+    },
+    {
+      "id": 124,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode suggests bypassing feature flags to \u0027simplify\u0027 rollout. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept; feature flags are technical debt",
+        "Reject; keep feature flags for controlled rollout and risk mitigation",
+        "Accept if the change is behind an environment variable",
+        "Remove feature flags only in production"
+      ],
+      "rightAnswer": "Reject; keep feature flags for controlled rollout and risk mitigation",
+      "explanation": "Feature flags support safe rollout; removing them increases operational risk."
+    },
+    {
+      "id": 125,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent proposes adding broad permissions (admin role) to fix an authorization bug quickly. What should you do?",
+      "potentialAnswers": [
+        "Accept because it resolves the bug",
+        "Reject; require least-privilege authorization fixes and add tests for access control",
+        "Accept temporarily and remove later",
+        "Disable authorization checks and rely on network security"
+      ],
+      "rightAnswer": "Reject; require least-privilege authorization fixes and add tests for access control",
+      "explanation": "Least privilege is mandatory; broadened permissions are high-risk."
+    },
+    {
+      "id": 126,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode changes formatting across thousands of lines mixed with functional changes. What is the BEST next step?",
+      "potentialAnswers": [
+        "Approve; formatting improves readability",
+        "Ask for a separate formatting-only PR and keep functional changes isolated",
+        "Disable formatting tools organization-wide",
+        "Squash merge to hide the diff noise"
+      ],
+      "rightAnswer": "Ask for a separate formatting-only PR and keep functional changes isolated",
+      "explanation": "Separate mechanical and functional changes to improve review signal."
+    },
+    {
+      "id": 127,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "The agent suggests adding telemetry events, but the org requires privacy review. What is the MOST appropriate approach?",
+      "potentialAnswers": [
+        "Add telemetry now and request privacy review later",
+        "Follow the privacy review process before emitting new telemetry, and ensure data minimization",
+        "Emit telemetry only for admins",
+        "Hash all telemetry values and skip review"
+      ],
+      "rightAnswer": "Follow the privacy review process before emitting new telemetry, and ensure data minimization",
+      "explanation": "Telemetry can be sensitive; follow governance and minimize data."
+    },
+    {
+      "id": 128,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode proposes changing database indexes in production migrations without rollback instructions. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept if it improves performance",
+        "Require rollback/mitigation steps and validate migration safety in a staging environment",
+        "Run migration directly on production first for accurate timing",
+        "Skip index changes to avoid risk entirely"
+      ],
+      "rightAnswer": "Require rollback/mitigation steps and validate migration safety in a staging environment",
+      "explanation": "Database changes require staged validation and rollback planning."
+    },
+    {
+      "id": 129,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "You notice the agent is repeatedly making incorrect assumptions about domain rules. What is the BEST corrective action?",
+      "potentialAnswers": [
+        "Let it continue; it will learn automatically",
+        "Provide authoritative domain rules (docs/examples/tests) and ask it to align changes to those sources",
+        "Remove all domain rules from documentation",
+        "Switch to a different programming language"
+      ],
+      "rightAnswer": "Provide authoritative domain rules (docs/examples/tests) and ask it to align changes to those sources",
+      "explanation": "Authoritative context + tests are the best way to correct domain misunderstandings."
+    },
+    {
+      "id": 130,
+      "topic": "Building applications with GitHub Copilot agent mode*",
+      "question": "Agent mode suggests implementing a feature using a deprecated library already flagged by security. What is the MOST appropriate action?",
+      "potentialAnswers": [
+        "Accept; deprecation warnings can be ignored",
+        "Reject and require approved, supported libraries; update dependency policy if needed",
+        "Pin the deprecated version so it stops changing",
+        "Hide the warnings in CI"
+      ],
+      "rightAnswer": "Reject and require approved, supported libraries; update dependency policy if needed",
+      "explanation": "Security/governance requires supported dependencies; do not introduce flagged libraries."
+    },
+    {
+      "id": 131,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "You assign the coding agent to \u0027add pagination\u0027 to an API endpoint. Which instruction BEST prevents breaking clients?",
+      "potentialAnswers": [
+        "Change the response shape to include pagination metadata without warning",
+        "Maintain backward compatibility (default behavior unchanged) and add a new optional query parameter",
+        "Remove existing parameters and replace with paging only",
+        "Return HTTP 302 to a new endpoint"
+      ],
+      "rightAnswer": "Maintain backward compatibility (default behavior unchanged) and add a new optional query parameter",
+      "explanation": "Preserve contracts; introduce additive changes with tests."
+    },
+    {
+      "id": 132,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The coding agent updates several files and marks the task \u0027done\u0027 but does not add tests. What is the BEST next step?",
+      "potentialAnswers": [
+        "Merge because the agent finished",
+        "Ask the agent to add unit/integration tests covering edge cases and rerun CI",
+        "Disable CI to avoid delays",
+        "Add tests later when bugs appear"
+      ],
+      "rightAnswer": "Ask the agent to add unit/integration tests covering edge cases and rerun CI",
+      "explanation": "Verification is part of done; require tests and CI validation."
+    },
+    {
+      "id": 133,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The coding agent proposes a refactor that touches 50 files. What is the BEST way to review it?",
+      "potentialAnswers": [
+        "Review only the summary comment",
+        "Ask the agent to split into smaller, logically grouped PRs with clear rationale per group",
+        "Approve quickly to avoid merge conflicts",
+        "Ignore changes in non-critical files"
+      ],
+      "rightAnswer": "Ask the agent to split into smaller, logically grouped PRs with clear rationale per group",
+      "explanation": "Smaller PRs reduce risk and improve review quality."
+    },
+    {
+      "id": 134,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "You ask the coding agent to \u0027fix flakey tests\u0027. It suggests adding large sleeps/timeouts. What is the MOST appropriate response?",
+      "potentialAnswers": [
+        "Accept because it reduces flakiness",
+        "Reject; request deterministic fixes (proper waits, isolation, mocking, stable test design)",
+        "Increase timeouts everywhere",
+        "Disable flakey tests permanently"
+      ],
+      "rightAnswer": "Reject; request deterministic fixes (proper waits, isolation, mocking, stable test design)",
+      "explanation": "Sleeps hide the issue and slow pipelines; deterministic tests are best practice."
+    },
+    {
+      "id": 135,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The coding agent suggests bypassing a validation rule to reduce errors in production. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept; fewer errors means better UX",
+        "Reject; keep validation and improve error messages/handling while preserving rules",
+        "Accept only for premium customers",
+        "Move validation to the database only"
+      ],
+      "rightAnswer": "Reject; keep validation and improve error messages/handling while preserving rules",
+      "explanation": "Validation encodes domain constraints and protects data integrity."
+    },
+    {
+      "id": 136,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The coding agent introduces a new API client but does not handle retries/backoff. What should you request?",
+      "potentialAnswers": [
+        "Nothing; failures are rare",
+        "Add resilience (timeouts, retries with backoff/jitter, and idempotency considerations) and tests",
+        "Catch all exceptions and ignore them",
+        "Retry forever in a tight loop"
+      ],
+      "rightAnswer": "Add resilience (timeouts, retries with backoff/jitter, and idempotency considerations) and tests",
+      "explanation": "External calls require reliability patterns and validation."
+    },
+    {
+      "id": 137,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "You ask the agent to \u0027improve performance\u0027 and it proposes caching responses without considering user-specific data. What is the BEST next step?",
+      "potentialAnswers": [
+        "Approve because caching always improves performance",
+        "Require cache key scoping (user/tenant) and tests to prevent data leakage",
+        "Cache everything globally to maximize hits",
+        "Remove authentication to simplify caching"
+      ],
+      "rightAnswer": "Require cache key scoping (user/tenant) and tests to prevent data leakage",
+      "explanation": "Caching must respect data boundaries; scoping prevents leakage."
+    },
+    {
+      "id": 138,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent proposes upgrading a dependency major version as part of a small feature task. What is the MOST appropriate instruction?",
+      "potentialAnswers": [
+        "Bundle upgrades with features to reduce PR count",
+        "Separate dependency upgrades from feature work unless required, and validate with a dedicated rollout plan",
+        "Upgrade only in production to validate faster",
+        "Ignore semver and pin random versions"
+      ],
+      "rightAnswer": "Separate dependency upgrades from feature work unless required, and validate with a dedicated rollout plan",
+      "explanation": "Major upgrades warrant dedicated testing and controlled rollout."
+    },
+    {
+      "id": 139,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent adds a new linter rule that fails many existing files. What is the BEST approach?",
+      "potentialAnswers": [
+        "Disable the linter",
+        "Scope the rule (new/changed files) and create a backlog item for gradual cleanup",
+        "Force-fix everything in the same PR as the feature",
+        "Ignore linter failures in CI"
+      ],
+      "rightAnswer": "Scope the rule (new/changed files) and create a backlog item for gradual cleanup",
+      "explanation": "Incremental enforcement avoids massive diffs and reduces risk."
+    },
+    {
+      "id": 140,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent generates a migration that changes column types with potential data loss. What is the BEST next step?",
+      "potentialAnswers": [
+        "Run the migration in production off-hours",
+        "Require a data migration plan, backups, staging rehearsal, and a rollback strategy",
+        "Assume the ORM handles it safely",
+        "Skip the migration and hardcode conversions in code"
+      ],
+      "rightAnswer": "Require a data migration plan, backups, staging rehearsal, and a rollback strategy",
+      "explanation": "Data-changing migrations require planning and rollback."
+    },
+    {
+      "id": 141,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "You request the agent to add observability. It adds high-cardinality labels (e.g., userId) to metrics. What should you do?",
+      "potentialAnswers": [
+        "Approve; more detail is better",
+        "Reject; require low-cardinality metrics and use logs/traces for per-request detail",
+        "Move metrics to the client",
+        "Disable metrics entirely"
+      ],
+      "rightAnswer": "Reject; require low-cardinality metrics and use logs/traces for per-request detail",
+      "explanation": "High-cardinality metrics can overload monitoring systems; use logs/traces for detailed context."
+    },
+    {
+      "id": 142,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent proposes catching Exception and returning 200 OK. What is the MOST appropriate response?",
+      "potentialAnswers": [
+        "Accept to keep the service stable",
+        "Reject; require correct status codes, structured error handling, and logging with correlation IDs",
+        "Return 204 No Content for all errors",
+        "Disable exceptions globally"
+      ],
+      "rightAnswer": "Reject; require correct status codes, structured error handling, and logging with correlation IDs",
+      "explanation": "Swallowing exceptions hides failures; APIs must communicate errors correctly."
+    },
+    {
+      "id": 143,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent adds a helper that mutates shared state and introduces non-deterministic tests. What is the BEST corrective action?",
+      "potentialAnswers": [
+        "Keep it; shared state reduces allocations",
+        "Refactor to pure functions or controlled state, and add tests that prevent regressions",
+        "Increase test retries",
+        "Disable parallel test execution"
+      ],
+      "rightAnswer": "Refactor to pure functions or controlled state, and add tests that prevent regressions",
+      "explanation": "Determinism is key; fix root cause rather than masking with retries."
+    },
+    {
+      "id": 144,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent suggests generating code from an untrusted external template found online. What is the MOST appropriate action?",
+      "potentialAnswers": [
+        "Use it because it saves time",
+        "Reject; require approved templates and review for security and licensing",
+        "Use it only for production",
+        "Copy it and change variable names"
+      ],
+      "rightAnswer": "Reject; require approved templates and review for security and licensing",
+      "explanation": "Untrusted templates can introduce vulnerabilities and IP risk."
+    },
+    {
+      "id": 145,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent produces code that passes unit tests but fails a security scan (e.g., hardcoded credentials). What is the BEST next step?",
+      "potentialAnswers": [
+        "Ignore the scan because tests passed",
+        "Fix the security findings, rerun scans, and add guards to prevent recurrence",
+        "Disable the scanner rule",
+        "Move credentials to a different file"
+      ],
+      "rightAnswer": "Fix the security findings, rerun scans, and add guards to prevent recurrence",
+      "explanation": "Security scanning is mandatory; tests do not guarantee security."
+    },
+    {
+      "id": 146,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "You ask the agent to update documentation. It adds marketing language rather than technical accuracy. What is the BEST correction?",
+      "potentialAnswers": [
+        "Keep marketing language; itâ€™s more persuasive",
+        "Request factual, precise docs that match behavior and include examples/limitations",
+        "Remove documentation entirely",
+        "Only document in code comments"
+      ],
+      "rightAnswer": "Request factual, precise docs that match behavior and include examples/limitations",
+      "explanation": "Docs must be accurate and actionable; exaggeration creates operational risk."
+    },
+    {
+      "id": 147,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent changes a public function signature to simplify internal logic. What should you request?",
+      "potentialAnswers": [
+        "Proceed; callers can update",
+        "Maintain compatibility via overloads/deprecation strategy and update API docs and tests",
+        "Remove the function entirely",
+        "Convert all callers automatically without review"
+      ],
+      "rightAnswer": "Maintain compatibility via overloads/deprecation strategy and update API docs and tests",
+      "explanation": "Breaking changes require deprecation/versioning and communication."
+    },
+    {
+      "id": 148,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent adds concurrency to improve throughput but introduces race conditions. What is the BEST next step?",
+      "potentialAnswers": [
+        "Ship and monitor",
+        "Add synchronization/immutability, add concurrency tests, and validate performance claims",
+        "Remove all concurrency and accept slower performance",
+        "Retry operations until they succeed"
+      ],
+      "rightAnswer": "Add synchronization/immutability, add concurrency tests, and validate performance claims",
+      "explanation": "Concurrency requires correctness proof and measured benefit."
+    },
+    {
+      "id": 149,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent uses a new pattern that conflicts with your team\u0027s established style. What should you do?",
+      "potentialAnswers": [
+        "Accept; diversity improves code",
+        "Ask the agent to align with existing conventions and update only necessary files",
+        "Rename the repository to match the new style",
+        "Disable style checks"
+      ],
+      "rightAnswer": "Ask the agent to align with existing conventions and update only necessary files",
+      "explanation": "Consistency improves maintainability; follow repo conventions."
+    },
+    {
+      "id": 150,
+      "topic": "Accelerate development with GitHub Copilot coding agent*",
+      "question": "The agent suggests skipping input sanitization because the UI \u0027already validates\u0027. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept for performance",
+        "Reject; enforce defense in depth and validate/sanitize at trust boundaries",
+        "Validate only on weekends",
+        "Rely on WAF only"
+      ],
+      "rightAnswer": "Reject; enforce defense in depth and validate/sanitize at trust boundaries",
+      "explanation": "Clients are untrusted; validate at boundaries for security and correctness."
+    },
+    {
+      "id": 151,
+      "topic": "Introduction to MCP Server*",
+      "question": "You are integrating Copilot with internal services via an MCP server. What is the PRIMARY security benefit of using MCP rather than letting the model access systems directly?",
+      "potentialAnswers": [
+        "MCP makes the model faster",
+        "MCP provides governed, auditable, least-privilege access to tools and context",
+        "MCP automatically encrypts all repository files",
+        "MCP eliminates the need for authentication"
+      ],
+      "rightAnswer": "MCP provides governed, auditable, least-privilege access to tools and context",
+      "explanation": "MCP mediates access, enabling least privilege and auditability."
+    },
+    {
+      "id": 152,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP tool can query a production database. What is the MOST appropriate configuration?",
+      "potentialAnswers": [
+        "Allow unrestricted queries for maximum usefulness",
+        "Provide read-only access with scoped queries and logging/auditing, and prefer non-production replicas",
+        "Store credentials in the MCP server source code for convenience",
+        "Disable authentication because MCP is internal"
+      ],
+      "rightAnswer": "Provide read-only access with scoped queries and logging/auditing, and prefer non-production replicas",
+      "explanation": "Least privilege, auditing, and environment separation reduce risk."
+    },
+    {
+      "id": 153,
+      "topic": "Introduction to MCP Server*",
+      "question": "Which risk is MOST directly reduced by requiring an MCP server to mediate tool usage?",
+      "potentialAnswers": [
+        "Syntax errors in code completions",
+        "Unauthorized data access and uncontrolled side effects",
+        "Slow internet connections",
+        "IDE plugin compatibility issues"
+      ],
+      "rightAnswer": "Unauthorized data access and uncontrolled side effects",
+      "explanation": "Mediation controls what the model can access/do, reducing unauthorized access and side effects."
+    },
+    {
+      "id": 154,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP tool returns large amounts of sensitive data. What is the BEST mitigation?",
+      "potentialAnswers": [
+        "Increase response size limits so the model can reason better",
+        "Apply data minimization: return only necessary fields and redact sensitive values",
+        "Base64-encode the response to hide it",
+        "Cache responses for all users"
+      ],
+      "rightAnswer": "Apply data minimization: return only necessary fields and redact sensitive values",
+      "explanation": "Minimize exposure and redact sensitive data to meet privacy/security principles."
+    },
+    {
+      "id": 155,
+      "topic": "Introduction to MCP Server*",
+      "question": "You want Copilot to use internal documentation via MCP. What is the BEST practice for the tool output?",
+      "potentialAnswers": [
+        "Return the entire wiki page unfiltered",
+        "Return relevant excerpts and links to the authoritative source",
+        "Return only the page title",
+        "Rewrite docs to match the modelâ€™s preferred style"
+      ],
+      "rightAnswer": "Return relevant excerpts and links to the authoritative source",
+      "explanation": "Targeted, traceable context reduces hallucinations and improves trust."
+    },
+    {
+      "id": 156,
+      "topic": "Introduction to MCP Server*",
+      "question": "Which design most aligns with governance for MCP tools that can modify systems?",
+      "potentialAnswers": [
+        "Tools should default to write access to be useful",
+        "Tools should use explicit confirmation gates and scoped operations for writes",
+        "Tools should never be logged",
+        "Tools should run in production only"
+      ],
+      "rightAnswer": "Tools should use explicit confirmation gates and scoped operations for writes",
+      "explanation": "Writes should be deliberate, scoped, and auditable."
+    },
+    {
+      "id": 157,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP server is configured with a tool that can send emails. What is the MOST appropriate guardrail?",
+      "potentialAnswers": [
+        "Allow sending to any address",
+        "Restrict recipients/domains, require template-based content, and log/audit sends",
+        "Disable logging to protect privacy",
+        "Let the model generate recipient lists automatically"
+      ],
+      "rightAnswer": "Restrict recipients/domains, require template-based content, and log/audit sends",
+      "explanation": "Outbound actions should be restricted and auditable to prevent misuse and leakage."
+    },
+    {
+      "id": 158,
+      "topic": "Introduction to MCP Server*",
+      "question": "What is the PRIMARY reason to prefer \u0027read-only\u0027 MCP tools for early adoption?",
+      "potentialAnswers": [
+        "They cost less to run",
+        "They reduce risk by avoiding side effects while still improving context quality",
+        "They make the model more creative",
+        "They replace unit testing"
+      ],
+      "rightAnswer": "They reduce risk by avoiding side effects while still improving context quality",
+      "explanation": "Read-only tools provide value with lower operational risk."
+    },
+    {
+      "id": 159,
+      "topic": "Introduction to MCP Server*",
+      "question": "Your MCP tool accesses internal tickets. What is the MOST appropriate data handling approach?",
+      "potentialAnswers": [
+        "Return full ticket history including personal notes",
+        "Return only fields needed for the task and redact personal data",
+        "Return only ticket IDs",
+        "Return raw database rows"
+      ],
+      "rightAnswer": "Return only fields needed for the task and redact personal data",
+      "explanation": "Data minimization and privacy are required when exposing internal systems."
+    },
+    {
+      "id": 160,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP server is used by multiple teams. What is the BEST approach to permissions?",
+      "potentialAnswers": [
+        "One shared admin token for simplicity",
+        "Per-team or per-user identities with least-privilege scopes",
+        "No authentication because itâ€™s internal",
+        "Hardcode credentials in the client"
+      ],
+      "rightAnswer": "Per-team or per-user identities with least-privilege scopes",
+      "explanation": "Identity-based access reduces blast radius and enables auditing."
+    },
+    {
+      "id": 161,
+      "topic": "Introduction to MCP Server*",
+      "question": "What is the MOST important reason to log MCP tool invocations?",
+      "potentialAnswers": [
+        "To speed up the model",
+        "To support auditing, incident response, and governance",
+        "To increase token limits",
+        "To eliminate code reviews"
+      ],
+      "rightAnswer": "To support auditing, incident response, and governance",
+      "explanation": "Logs provide traceability, essential for compliance and investigation."
+    },
+    {
+      "id": 162,
+      "topic": "Introduction to MCP Server*",
+      "question": "Your MCP server returns internal documentation that is sometimes outdated. What is the BEST mitigation to reduce incorrect guidance?",
+      "potentialAnswers": [
+        "Disable the tool entirely",
+        "Include document version/timestamp and link to the authoritative source, and prefer curated sources",
+        "Let the model guess the newest version",
+        "Cache responses forever"
+      ],
+      "rightAnswer": "Include document version/timestamp and link to the authoritative source, and prefer curated sources",
+      "explanation": "Freshness transparency reduces risk of acting on stale information."
+    },
+    {
+      "id": 163,
+      "topic": "Introduction to MCP Server*",
+      "question": "Which statement about MCP tools is MOST correct in an enterprise setting?",
+      "potentialAnswers": [
+        "Tools should expose as much capability as possible to maximize productivity",
+        "Tools should expose only necessary capability and data to complete tasks safely",
+        "Tools should always run with admin privileges",
+        "Tools eliminate the need for policy controls"
+      ],
+      "rightAnswer": "Tools should expose only necessary capability and data to complete tasks safely",
+      "explanation": "Least privilege and scoped capability are core enterprise controls."
+    },
+    {
+      "id": 164,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP tool can create issues in GitHub. What is the BEST guardrail to prevent spam or abuse?",
+      "potentialAnswers": [
+        "Allow unlimited issue creation",
+        "Rate limit, require templates, and restrict repositories where creation is allowed",
+        "Disable issue creation logs",
+        "Allow anonymous access"
+      ],
+      "rightAnswer": "Rate limit, require templates, and restrict repositories where creation is allowed",
+      "explanation": "Rate limits and scoping reduce abuse; templates improve quality."
+    },
+    {
+      "id": 165,
+      "topic": "Introduction to MCP Server*",
+      "question": "When exposing an MCP tool that runs scripts, what is the MOST appropriate safety measure?",
+      "potentialAnswers": [
+        "Allow arbitrary script execution",
+        "Use an allowlist of commands, sandbox execution, and least-privilege runtime identities",
+        "Run as root for fewer permission errors",
+        "Disable output to reduce leakage"
+      ],
+      "rightAnswer": "Use an allowlist of commands, sandbox execution, and least-privilege runtime identities",
+      "explanation": "Script execution is high risk; sandbox + allowlists are essential."
+    },
+    {
+      "id": 166,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP server is used to fetch internal API schemas. What is the BEST way to improve answer quality and reduce hallucinations?",
+      "potentialAnswers": [
+        "Return only endpoint names",
+        "Return the relevant schema fragment and example payloads for the requested endpoint",
+        "Return unrelated endpoints for more context",
+        "Let the model infer the schema from naming"
+      ],
+      "rightAnswer": "Return the relevant schema fragment and example payloads for the requested endpoint",
+      "explanation": "Precise schema fragments and examples reduce ambiguity and improve correctness."
+    },
+    {
+      "id": 167,
+      "topic": "Introduction to MCP Server*",
+      "question": "Which is a common anti-pattern when designing MCP tools for AI assistants?",
+      "potentialAnswers": [
+        "Providing deterministic outputs",
+        "Returning structured data (JSON) with explicit fields",
+        "Exposing broad, ambiguous actions like \u0027doEverything()\u0027",
+        "Including error codes and messages"
+      ],
+      "rightAnswer": "Exposing broad, ambiguous actions like \u0027doEverything()\u0027",
+      "explanation": "Overly powerful ambiguous tools reduce control and increase risk."
+    },
+    {
+      "id": 168,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP tool can access source code. What is the BEST approach for sensitive repositories?",
+      "potentialAnswers": [
+        "Expose all repositories to all users",
+        "Restrict access by repo/team, and ensure the tool enforces authorization checks",
+        "Only expose production repos because they matter most",
+        "Store repo contents in a shared cache without access control"
+      ],
+      "rightAnswer": "Restrict access by repo/team, and ensure the tool enforces authorization checks",
+      "explanation": "Sensitive repos require strict access control and authorization enforcement."
+    },
+    {
+      "id": 169,
+      "topic": "Introduction to MCP Server*",
+      "question": "A model requests an MCP tool to retrieve customer PII to debug an issue. What is the MOST appropriate response?",
+      "potentialAnswers": [
+        "Return the full record to resolve faster",
+        "Deny or return redacted/anonymized data and follow privacy procedures",
+        "Return the record only for engineers",
+        "Return the record if the customer is premium"
+      ],
+      "rightAnswer": "Deny or return redacted/anonymized data and follow privacy procedures",
+      "explanation": "Privacy/compliance requires minimizing PII exposure and following approved processes."
+    },
+    {
+      "id": 170,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "You use Copilot to summarize a PR. What is the MOST appropriate next step before approving?",
+      "potentialAnswers": [
+        "Approve based on the summary only",
+        "Verify the summary against the diff and run/confirm CI results",
+        "Ask Copilot to approve the PR",
+        "Merge to main to reduce queue time"
+      ],
+      "rightAnswer": "Verify the summary against the diff and run/confirm CI results",
+      "explanation": "Summaries accelerate review but do not replace verifying diffs and CI."
+    },
+    {
+      "id": 171,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot flags a potential null reference in the PR. The author says \u0027tests pass\u0027. What is the BEST reviewer action?",
+      "potentialAnswers": [
+        "Ignore; tests passed",
+        "Request a defensive fix or additional test that covers the null scenario",
+        "Approve and rely on monitoring",
+        "Ask the author to add a comment explaining why itâ€™s safe"
+      ],
+      "rightAnswer": "Request a defensive fix or additional test that covers the null scenario",
+      "explanation": "Tests may miss paths; reviewers should ensure risky paths are handled and tested."
+    },
+    {
+      "id": 172,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR changes authorization logic. How should Copilot be used most appropriately in review?",
+      "potentialAnswers": [
+        "Ask Copilot to confirm it\u0027s secure and approve",
+        "Ask Copilot to list potential security concerns and then validate them manually",
+        "Skip review because Copilot wrote it",
+        "Only review formatting changes"
+      ],
+      "rightAnswer": "Ask Copilot to list potential security concerns and then validate them manually",
+      "explanation": "Copilot can surface concerns, but humans must validate security."
+    },
+    {
+      "id": 173,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot suggests a refactor during review that would touch many unrelated files. What is the BEST way to proceed?",
+      "potentialAnswers": [
+        "Request the refactor in the same PR for completeness",
+        "Defer to a separate PR to keep scope focused and reviewable",
+        "Reject the PR entirely",
+        "Approve and let the author refactor after merge"
+      ],
+      "rightAnswer": "Defer to a separate PR to keep scope focused and reviewable",
+      "explanation": "Focused PR scope improves review quality and reduces risk."
+    },
+    {
+      "id": 174,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR introduces a new dependency. Copilot notes it has a known vulnerability (per advisory). What is the BEST action?",
+      "potentialAnswers": [
+        "Merge if the vulnerability is low severity",
+        "Block the PR until the dependency is updated/replaced and scans pass",
+        "Ignore because itâ€™s only transitive",
+        "Suppress the alert in the scanner"
+      ],
+      "rightAnswer": "Block the PR until the dependency is updated/replaced and scans pass",
+      "explanation": "Address vulnerabilities; do not merge known-vulnerable dependencies."
+    },
+    {
+      "id": 175,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "During PR review, Copilot suggests that a function violates SRP. What is the MOST appropriate response?",
+      "potentialAnswers": [
+        "Reject the PR immediately",
+        "Ask for a small refactor if it reduces complexity without changing behavior, or create a follow-up task",
+        "Ignore; SRP is optional",
+        "Ask Copilot to rewrite the whole module"
+      ],
+      "rightAnswer": "Ask for a small refactor if it reduces complexity without changing behavior, or create a follow-up task",
+      "explanation": "Balance improvement with scope; prefer small refactors or follow-ups."
+    },
+    {
+      "id": 176,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot-generated PR description includes claims not reflected in the diff. What is the BEST reviewer action?",
+      "potentialAnswers": [
+        "Approve because descriptions are optional",
+        "Request corrections to the PR description to match actual changes",
+        "Rewrite the description yourself and merge",
+        "Ignore mismatches if tests pass"
+      ],
+      "rightAnswer": "Request corrections to the PR description to match actual changes",
+      "explanation": "Accurate PR descriptions improve auditability and maintenance."
+    },
+    {
+      "id": 177,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR adds a new API endpoint but no documentation. Copilot suggests adding an OpenAPI spec update. What is the BEST action?",
+      "potentialAnswers": [
+        "Merge and document later",
+        "Require documentation (OpenAPI/README) and examples before approval",
+        "Ask Copilot to create a wiki page only",
+        "Disable OpenAPI generation"
+      ],
+      "rightAnswer": "Require documentation (OpenAPI/README) and examples before approval",
+      "explanation": "API changes should include updated specs and docs."
+    },
+    {
+      "id": 178,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot indicates that a PR increases complexity in a hot path. What is the BEST next step?",
+      "potentialAnswers": [
+        "Approve because complexity doesn\u0027t matter",
+        "Request a benchmark or profiling evidence, and consider a simpler approach",
+        "Merge and optimize later",
+        "Remove logging to compensate"
+      ],
+      "rightAnswer": "Request a benchmark or profiling evidence, and consider a simpler approach",
+      "explanation": "Performance changes should be evidence-based; prefer simpler designs when possible."
+    },
+    {
+      "id": 179,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR contains both functional changes and large formatting reflows. What is the BEST review practice?",
+      "potentialAnswers": [
+        "Approve because formatting is harmless",
+        "Ask to split formatting into a separate commit/PR to reduce noise",
+        "Reject all formatting changes permanently",
+        "Ignore functional changes to focus on formatting"
+      ],
+      "rightAnswer": "Ask to split formatting into a separate commit/PR to reduce noise",
+      "explanation": "Separate mechanical vs functional changes for clearer review."
+    },
+    {
+      "id": 180,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot suggests adding retries around a non-idempotent operation during review. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept; retries always improve reliability",
+        "Reject or adjust; ensure idempotency or use safe retry patterns with deduplication",
+        "Increase timeout instead of retries",
+        "Retry indefinitely"
+      ],
+      "rightAnswer": "Reject or adjust; ensure idempotency or use safe retry patterns with deduplication",
+      "explanation": "Retries can duplicate side effects; require idempotency/deduplication."
+    },
+    {
+      "id": 181,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot flags that a PR logs full JWT tokens. What is the BEST action?",
+      "potentialAnswers": [
+        "Approve because logs are internal",
+        "Block and require token redaction and incident response steps if tokens were exposed",
+        "Only log tokens in production",
+        "Encode tokens before logging"
+      ],
+      "rightAnswer": "Block and require token redaction and incident response steps if tokens were exposed",
+      "explanation": "Tokens are secrets; logging them is a critical issue requiring remediation and possibly rotation."
+    },
+    {
+      "id": 182,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "In PR review, Copilot suggests simplifying error handling by returning 200 with an error message payload. What should you do?",
+      "potentialAnswers": [
+        "Accept; clients can inspect payloads",
+        "Reject; require proper status codes and consistent error contracts",
+        "Accept if the payload includes \u0027success=false\u0027",
+        "Return 204 No Content on errors"
+      ],
+      "rightAnswer": "Reject; require proper status codes and consistent error contracts",
+      "explanation": "Correct HTTP semantics and stable error contracts are essential."
+    },
+    {
+      "id": 183,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR adds a new endpoint and uses string concatenation to build SQL. Copilot warns about injection. What is the BEST reviewer action?",
+      "potentialAnswers": [
+        "Approve because inputs are validated",
+        "Block the PR and require parameterized queries/ORM safe APIs and tests",
+        "Merge and add WAF rules",
+        "Escape quotes manually"
+      ],
+      "rightAnswer": "Block the PR and require parameterized queries/ORM safe APIs and tests",
+      "explanation": "Parameterized queries are the correct mitigation for SQL injection."
+    },
+    {
+      "id": 184,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot suggests that the PR could break backward compatibility for a library version. What is the BEST action?",
+      "potentialAnswers": [
+        "Ignore; semver is optional",
+        "Require a changelog entry and version bump consistent with semver, plus consumer tests",
+        "Merge and tag a patch version",
+        "Rename the library to avoid versioning"
+      ],
+      "rightAnswer": "Require a changelog entry and version bump consistent with semver, plus consumer tests",
+      "explanation": "Breaking changes require appropriate versioning and communication; consumer tests reduce risk."
+    },
+    {
+      "id": 185,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR modifies security headers (CSP, HSTS). Copilot provides a suggestion. What is the MOST appropriate review approach?",
+      "potentialAnswers": [
+        "Accept if Copilot says it\u0027s best practice",
+        "Validate against your security baseline and test in staging with browser reports",
+        "Disable CSP to reduce errors",
+        "Use the loosest CSP for compatibility"
+      ],
+      "rightAnswer": "Validate against your security baseline and test in staging with browser reports",
+      "explanation": "Security headers must match org baselines and be validated in realistic environments."
+    },
+    {
+      "id": 186,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot summary indicates \u0027no behavior change\u0027, but you suspect a subtle bug. What is the BEST action?",
+      "potentialAnswers": [
+        "Approve because the summary says so",
+        "Request targeted tests for the suspected behavior and review the specific diff sections",
+        "Merge and create an issue if it breaks",
+        "Ask for a bigger summary"
+      ],
+      "rightAnswer": "Request targeted tests for the suspected behavior and review the specific diff sections",
+      "explanation": "Validate claims with diffs and tests; summaries can be wrong."
+    },
+    {
+      "id": 187,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "A PR adds a new feature flag. Copilot suggests default-on for all users. What is the BEST rollout strategy?",
+      "potentialAnswers": [
+        "Default-on to maximize value",
+        "Default-off with gradual enablement (ring/percentage) and monitoring",
+        "Enable only in production",
+        "Remove the flag and deploy directly"
+      ],
+      "rightAnswer": "Default-off with gradual enablement (ring/percentage) and monitoring",
+      "explanation": "Feature flags enable safe rollout; gradual enablement reduces risk."
+    },
+    {
+      "id": 188,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "Copilot suggests adding a new test but it asserts exact log message text. What is the BEST action?",
+      "potentialAnswers": [
+        "Approve; more tests is always better",
+        "Request a behavior-focused test (outputs/state) rather than brittle log text assertions",
+        "Remove tests entirely",
+        "Only assert timestamps"
+      ],
+      "rightAnswer": "Request a behavior-focused test (outputs/state) rather than brittle log text assertions",
+      "explanation": "Behavior-focused tests are more stable and meaningful than brittle log-text assertions."
+    },
+    {
+      "id": 189,
+      "topic": "Leveling up code reviews and pull requests with Copilot*",
+      "question": "During review, Copilot proposes a micro-optimization that makes code harder to read. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept; performance is always priority",
+        "Request evidence (benchmark) and prefer readability unless performance need is proven",
+        "Reject all optimizations",
+        "Move code to unsafe blocks"
+      ],
+      "rightAnswer": "Request evidence (benchmark) and prefer readability unless performance need is proven",
+      "explanation": "Optimize based on evidence; maintainability matters."
+    },
+    {
+      "id": 190,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "You ask Copilot to write an Express middleware for authentication. What is the MOST important review focus before merging?",
+      "potentialAnswers": [
+        "Whether it uses semicolons",
+        "Correct security behavior (token validation, error paths) and not logging secrets",
+        "Whether it uses callbacks instead of async/await",
+        "Whether it reduces bundle size"
+      ],
+      "rightAnswer": "Correct security behavior (token validation, error paths) and not logging secrets",
+      "explanation": "Security behavior and secret handling are the primary concerns."
+    },
+    {
+      "id": 191,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "Copilot suggests using \u0027eval\u0027 to parse dynamic input in a Node.js service. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept; it\u0027s flexible",
+        "Reject; avoid eval and use safe parsing/validation strategies",
+        "Accept only in production",
+        "Wrap eval in try/catch"
+      ],
+      "rightAnswer": "Reject; avoid eval and use safe parsing/validation strategies",
+      "explanation": "eval is a common injection vector and violates secure coding practices."
+    },
+    {
+      "id": 192,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "A Copilot suggestion mixes CommonJS and ES modules inconsistently. What is the BEST action?",
+      "potentialAnswers": [
+        "Keep both for compatibility",
+        "Align with the projectâ€™s module system and update imports/exports consistently",
+        "Disable linting rules",
+        "Rename files to .txt"
+      ],
+      "rightAnswer": "Align with the projectâ€™s module system and update imports/exports consistently",
+      "explanation": "Consistency with build/runtime configuration prevents subtle runtime failures."
+    },
+    {
+      "id": 193,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "Copilot generates an async function but forgets to handle rejected promises. What is the MOST appropriate fix?",
+      "potentialAnswers": [
+        "Ignore; Node will handle it",
+        "Add proper try/catch (or .catch) and return consistent error responses",
+        "Convert to synchronous code",
+        "Add a global unhandledRejection handler only"
+      ],
+      "rightAnswer": "Add proper try/catch (or .catch) and return consistent error responses",
+      "explanation": "Unhandled rejections can crash processes or cause undefined behavior; handle errors explicitly."
+    },
+    {
+      "id": 194,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "You ask Copilot to implement input validation in JavaScript. Which approach is MOST robust?",
+      "potentialAnswers": [
+        "Rely on client-side validation only",
+        "Validate at trust boundaries using a schema validator and reject unknown fields",
+        "Use regex for all validation without tests",
+        "Trim strings and assume correctness"
+      ],
+      "rightAnswer": "Validate at trust boundaries using a schema validator and reject unknown fields",
+      "explanation": "Schema validation at boundaries reduces attack surface and improves correctness."
+    },
+    {
+      "id": 195,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "Copilot suggests a regex for email validation. What is the BEST practice in review?",
+      "potentialAnswers": [
+        "Accept if it looks correct",
+        "Prefer a well-tested library/standard approach and add tests for edge cases",
+        "Remove validation",
+        "Validate only after saving to DB"
+      ],
+      "rightAnswer": "Prefer a well-tested library/standard approach and add tests for edge cases",
+      "explanation": "Email validation is nuanced; trusted approaches plus tests are safer than ad-hoc regex."
+    },
+    {
+      "id": 196,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "A Copilot completion uses \u0027var\u0027 in a codebase that enforces \u0027const/let\u0027. What is the BEST response?",
+      "potentialAnswers": [
+        "Allow var; it\u0027s fine",
+        "Update to const/let consistent with lint rules and immutability expectations",
+        "Disable the lint rule",
+        "Convert code to TypeScript immediately"
+      ],
+      "rightAnswer": "Update to const/let consistent with lint rules and immutability expectations",
+      "explanation": "Follow established conventions to maintain consistency and prevent accidental mutation."
+    },
+    {
+      "id": 197,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "Copilot generates an API call without timeouts or abort handling (fetch). What should you add?",
+      "potentialAnswers": [
+        "Nothing; fetch always returns quickly",
+        "AbortController/timeouts and clear error handling for retries or fallbacks",
+        "A while(true) retry loop",
+        "Set keep-alive to true"
+      ],
+      "rightAnswer": "AbortController/timeouts and clear error handling for retries or fallbacks",
+      "explanation": "Reliable network code requires timeouts and explicit failure behavior."
+    },
+    {
+      "id": 198,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "Copilot suggests concatenating URL query parameters manually. What is the BEST improvement?",
+      "potentialAnswers": [
+        "Keep it; itâ€™s faster",
+        "Use URL/URLSearchParams to properly encode parameters",
+        "Remove query parameters entirely",
+        "Base64-encode the entire URL"
+      ],
+      "rightAnswer": "Use URL/URLSearchParams to properly encode parameters",
+      "explanation": "Proper encoding avoids injection and formatting bugs."
+    },
+    {
+      "id": 199,
+      "topic": "Using GitHub Copilot with JavaScript*",
+      "question": "In a frontend app, Copilot generates DOM manipulation using innerHTML with user content. What is the BEST action?",
+      "potentialAnswers": [
+        "Accept; itâ€™s simpler",
+        "Reject; avoid innerHTML with untrusted content and use safe rendering/escaping",
+        "Use innerHTML only on weekends",
+        "Wrap in try/catch"
+      ],
+      "rightAnswer": "Reject; avoid innerHTML with untrusted content and use safe rendering/escaping",
+      "explanation": "innerHTML with untrusted content can enable XSS; safe rendering is required."
+    },
+    {
+      "id": 200,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot generates a Flask endpoint that returns raw exception messages to the client. What is the BEST fix?",
+      "potentialAnswers": [
+        "Keep it for easier debugging",
+        "Return a generic error message, log details server-side with correlation IDs",
+        "Print the exception to stdout only",
+        "Disable exceptions in Flask"
+      ],
+      "rightAnswer": "Return a generic error message, log details server-side with correlation IDs",
+      "explanation": "Do not leak internals to clients; log securely with correlation IDs."
+    },
+    {
+      "id": 201,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot suggests using pickle to deserialize untrusted input for convenience. What is the MOST appropriate response?",
+      "potentialAnswers": [
+        "Accept; pickle is standard",
+        "Reject; avoid pickle for untrusted input and use safe formats like JSON with validation",
+        "Accept if you base64 the data",
+        "Use pickle only in production"
+      ],
+      "rightAnswer": "Reject; avoid pickle for untrusted input and use safe formats like JSON with validation",
+      "explanation": "pickle can execute arbitrary code with untrusted input; it is unsafe."
+    },
+    {
+      "id": 202,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "You ask Copilot to write a pandas transformation. It uses chained indexing that triggers SettingWithCopy issues. What is the BEST improvement?",
+      "potentialAnswers": [
+        "Ignore warnings",
+        "Use .loc assignments and explicit copies to ensure deterministic behavior",
+        "Disable pandas warnings globally",
+        "Convert the dataframe to a list of dicts first"
+      ],
+      "rightAnswer": "Use .loc assignments and explicit copies to ensure deterministic behavior",
+      "explanation": "Avoid chained indexing to prevent subtle, non-deterministic behavior."
+    },
+    {
+      "id": 203,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot generates Python code without a requirements lock and uses unpinned dependencies. What is the BEST practice?",
+      "potentialAnswers": [
+        "Leave dependencies unpinned",
+        "Pin dependencies and use a lockfile/constraints to ensure reproducible builds",
+        "Install latest on each deploy",
+        "Copy site-packages into the repo"
+      ],
+      "rightAnswer": "Pin dependencies and use a lockfile/constraints to ensure reproducible builds",
+      "explanation": "Pinned dependencies improve reproducibility and supply-chain security."
+    },
+    {
+      "id": 204,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot suggests catching a broad Exception and continuing silently in a data pipeline. What is the BEST response?",
+      "potentialAnswers": [
+        "Accept to avoid failures",
+        "Reject; catch specific exceptions, log, and fail or route to a dead-letter path appropriately",
+        "Print and continue",
+        "Disable logging"
+      ],
+      "rightAnswer": "Reject; catch specific exceptions, log, and fail or route to a dead-letter path appropriately",
+      "explanation": "Silent failures corrupt data and hide issues; structured handling is required."
+    },
+    {
+      "id": 205,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot writes an asyncio function but uses blocking I/O inside it. What is the BEST correction?",
+      "potentialAnswers": [
+        "Keep blocking calls; asyncio will handle it",
+        "Replace with async-compatible libraries or run blocking calls in an executor",
+        "Remove asyncio entirely and use threads everywhere",
+        "Add more awaits"
+      ],
+      "rightAnswer": "Replace with async-compatible libraries or run blocking calls in an executor",
+      "explanation": "Blocking I/O defeats asyncio concurrency; use async libs or offload blocking work."
+    },
+    {
+      "id": 206,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot generates SQL queries using string formatting. What is the BEST practice in Python DB access?",
+      "potentialAnswers": [
+        "Escape quotes manually",
+        "Use parameterized queries provided by the driver/ORM",
+        "Use f-strings for readability",
+        "Disable user inputs"
+      ],
+      "rightAnswer": "Use parameterized queries provided by the driver/ORM",
+      "explanation": "Parameterized queries prevent SQL injection."
+    },
+    {
+      "id": 207,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot suggests using global mutable state to cache results in a web app. What is the BEST alternative?",
+      "potentialAnswers": [
+        "Keep global state; itâ€™s fastest",
+        "Use a proper caching layer with TTL and thread/process-safe behavior (e.g., Redis)",
+        "Use a file on disk for every request",
+        "Disable caching entirely"
+      ],
+      "rightAnswer": "Use a proper caching layer with TTL and thread/process-safe behavior (e.g., Redis)",
+      "explanation": "Global mutable state breaks under concurrency/scaling; use proper caching."
+    },
+    {
+      "id": 208,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "A Copilot completion adds type hints inconsistently across Python modules. What is the BEST approach?",
+      "potentialAnswers": [
+        "Remove all hints",
+        "Adopt consistent type hints and enforce with mypy/pyright gradually",
+        "Use type: ignore everywhere",
+        "Only type hint public methods"
+      ],
+      "rightAnswer": "Adopt consistent type hints and enforce with mypy/pyright gradually",
+      "explanation": "Consistent typing improves maintainability; gradual enforcement avoids massive diffs."
+    },
+    {
+      "id": 209,
+      "topic": "Using GitHub Copilot with Python*",
+      "question": "Copilot generates unit tests that assert exact exception text. What is the BEST improvement?",
+      "potentialAnswers": [
+        "Keep it; text is stable",
+        "Assert exception type and key fields, not full message text",
+        "Remove exception tests",
+        "Assert timestamps too"
+      ],
+      "rightAnswer": "Assert exception type and key fields, not full message text",
+      "explanation": "Brittle message assertions cause flaky tests; behavior-focused assertions are preferred."
+    },
+    {
+      "id": 210,
+      "topic": "Introduction to MCP Server*",
+      "question": "An MCP tool sometimes fails and returns ambiguous errors. What is the BEST tool design improvement to support safe AI-assisted workflows?",
+      "potentialAnswers": [
+        "Return free-form text only so the model can interpret it creatively",
+        "Return structured errors (code, message, retryable flag) and avoid leaking sensitive internals",
+        "Hide all errors and always return success",
+        "Automatically retry indefinitely on any failure"
+      ],
+      "rightAnswer": "Return structured errors (code, message, retryable flag) and avoid leaking sensitive internals",
+      "explanation": "Structured, non-sensitive error metadata helps the model and humans choose safe next steps (retry, fallback, escalate) without exposing internals."
     }
   ]
 };

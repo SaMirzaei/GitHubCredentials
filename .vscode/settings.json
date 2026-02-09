@@ -1,5 +1,5 @@
 {
     "iis.configDir": "",
     "accessibility.voice.speechTimeout": 2000,
-    "accessibility.voice.keywordActivation": "chatInContext"
+    "accessibility.voice.keywordActivation": "chatInView"
 }
