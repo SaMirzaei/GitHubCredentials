@@ -7,19 +7,20 @@
 
 2. GitHub Extension
 
-3. Copilot Chat
+3. Custom-Agent
+   - A specialized Copilot agent we define with a specific role, scope, tools, and rules, instead of using the generic “Copilot Chat”.
+   1. Create in the workspace
+   2. Copy explain the example
+   3. Shwo the definition of done
+   4. prompt: 'Fetch issue #2 using #issues_get_detail , then implement it locally'
+
+4. Copilot Chat
    1. Prompts:
       - Tools <MCP Server>
       1. 'show me all issues from GitHub'
       2. '#issues_get_detail number 2'
       3. 'assing the issue to me. #issues_assigned_to_me'
       4. 'Start to implement the issue'
-
-4. Custom-Agent
-   1. Create in the workspace
-   2. Copy explain the example
-   3. Shwo the definition of done
-   4. prompt: 'Fetch issue #2 using #issues_get_detail , then implement it locally'
 
 5. Quize NEW Quetsiosns *
 
